@@ -7,8 +7,8 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#E0FFFF",
-    "navigationBarTitleText": "便捷邻里",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "邻里闲宝",
+    "navigationBarTextStyle": "black"    
   },
   "tabBar": {
     "list": [

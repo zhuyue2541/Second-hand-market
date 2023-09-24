@@ -1,1 +1,55 @@
 /* pages/home/home.wxss */
+/* index.wxss */
+.outerContainer {
+  padding: 20rpx;
+  flex-direction: column;
+  display: flex;
+}
+
+/* index.wxss */
+.search-box {
+  display: flex;
+  padding: 1rpx;
+  margin-bottom: 5rpx;
+  border: 2px solid #f80a0a;
+  border-radius: 40rpx;
+  /* height: 60rpx; */
+}
+
+.search-input {
+  flex: 9;
+  height: 40rpx;
+  border: none;
+}
+
+.search-button {
+  flex: 1;
+  /* 圆角大小 */
+  border-radius: 40rpx;  
+  font-size: 30rpx;  
+  /* height: 60rpx;
+  line-height: 60rpx; */
+
+  text-align: center;
+  /* 背景颜色 */
+  background-color: rgb(240, 64, 11);
+  /* 字体颜色 */
+  color: rgb(250, 249, 249);
+  /* 设置元素内边距 */
+  padding: 5rpx;
+  /* margin-right: 20rpx;
+   text-indent: 10rpx; */
+   box-shadow: 5rpx 5rpx 10rpx #cccccc;
+}
+
+.context-all {
+  flex: 8;  
+  border: 2px solid #f80a0a;
+}
+
+/* .search-result {
+  margin-top: 20rpx;
+  background-color: #f8f8f8;
+  padding: 10rpx;
+  border-radius: 10rpx;
+} */

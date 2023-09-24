@@ -1,2 +1,4 @@
-<!--pages/contact/contact.wxml-->
-<text>pages/contact/contact.wxml</text>
+<view class="container">
+  <view class="view1"></view>
+  <view class="view2"></view>
+</view>
