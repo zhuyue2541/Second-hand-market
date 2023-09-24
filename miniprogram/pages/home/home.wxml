@@ -1,51 +1,11 @@
 <!-- 最外层框 -->
 <view class="outerContainer">
-  <!-- 搜索框 -->
-  <view class="search-box">
-    <input class="search-input" placeholder="请输入关键词" maxlength="140" bindinput="onInput" />
-    <button class="search-button" bindtap="onSearch">搜索</button>
+<!-- 搜索框 -->
+  <view class="searchBox">
+    <input class="searchInput" placeholder="请输入关键词" maxlength="140" bindinput="onInput" />
+    <button class="searchButton" bindtap="onSearch">搜索</button>
   </view>
-  <!-- 内部内容框 -->
-  <view class="context-all">
-    <!-- 顶部分类 -->
-    <view class="top-class">
-    </view>
-    <!-- 中间内容与分类 -->
-    <view class="context-class">
-      <!-- 左侧分类列表 -->
-      <view class="left-class">
-
-      </view>
-
-      <!-- 中间展示内容 -->
-      <view class="center-context">
-        
-      </view>
-    </view>
+  <!-- 所有内容 -->
+  <view class = "contextAll">
   </view>
-
-  <!-- <view class="container-home">
-    <view class="all-context">
-      <text>{{searchResult}}</text>
-
-    </view>
-    <view class="product-category">
-      <scroll-view class="product-categorys" scroll-y>
-        <view>书本文具</view>
-        <view>儿童玩具</view>
-        <view>电器</view>
-        <view>家具</view>
-        <view>首饰</view>
-        <view>厨具</view>
-        <view>计算机</view>
-        <view>手机</view>
-        <view>衣物</view>
-        <view>运动器材</view>
-        <view>乐器</view>
-        <view>五金</view>
-        <view>其他</view>
-      </scroll-view>
-    </view>
-  </view> -->
-
 </view>

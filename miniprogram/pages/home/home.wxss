@@ -1,55 +1,43 @@
-/* pages/home/home.wxss */
-/* index.wxss */
 .outerContainer {
-  padding: 20rpx;
+  border: 1rpx solid red;
+  margin: 5rpx;
+  height: 99vh;
+  display: flex;
   flex-direction: column;
+
+}
+
+.searchBox {
+  flex:1;
+  margin: 5rpx;
+  border: 2rpx solid red;  
+  border-radius:40rpx;
   display: flex;
+  flex-direction: row;
+  padding: 2rpx;  
+  align-items: center; /* 垂直居中对齐 */
+}
+.searchInput{
+  flex:10;  
+  border: 2rpx solid blue;   
+  border-radius:40rpx;
+  margin-right: 5rpx;
 }
 
-/* index.wxss */
-.search-box {
-  display: flex;
-  padding: 1rpx;
-  margin-bottom: 5rpx;
-  border: 2px solid #f80a0a;
-  border-radius: 40rpx;
-  /* height: 60rpx; */
+.searchButton{
+  flex:1;  
+  padding: 2rpx;  
+  background-color: red;
+  color: white;
+  line-height: 50rpx;
+  font-size: 25rpx;
+  border-radius:40rpx;
+  margin-left: 2rpx;
+  margin-right: 2rpx;
 }
 
-.search-input {
-  flex: 9;
-  height: 40rpx;
-  border: none;
+.contextAll {
+  flex:18;
+  margin: 5rpx;
+  border: 2rpx solid red;
 }
-
-.search-button {
-  flex: 1;
-  /* 圆角大小 */
-  border-radius: 40rpx;  
-  font-size: 30rpx;  
-  /* height: 60rpx;
-  line-height: 60rpx; */
-
-  text-align: center;
-  /* 背景颜色 */
-  background-color: rgb(240, 64, 11);
-  /* 字体颜色 */
-  color: rgb(250, 249, 249);
-  /* 设置元素内边距 */
-  padding: 5rpx;
-  /* margin-right: 20rpx;
-   text-indent: 10rpx; */
-   box-shadow: 5rpx 5rpx 10rpx #cccccc;
-}
-
-.context-all {
-  flex: 8;  
-  border: 2px solid #f80a0a;
-}
-
-/* .search-result {
-  margin-top: 20rpx;
-  background-color: #f8f8f8;
-  padding: 10rpx;
-  border-radius: 10rpx;
-} */
