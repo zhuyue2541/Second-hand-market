@@ -8,36 +8,96 @@
 }
 
 .searchBox {
-  flex:1;
   margin: 5rpx;
-  border: 2rpx solid red;  
-  border-radius:40rpx;
+  border: 2rpx solid red;
+  border-radius: 40rpx;
   display: flex;
   flex-direction: row;
-  padding: 2rpx;  
-  align-items: center; /* 垂直居中对齐 */
+  padding: 2rpx;
+  align-items: center;
+  /* 垂直居中对齐 */
+  height: 60rpx;
 }
-.searchInput{
-  flex:10;  
-  border: 2rpx solid blue;   
-  border-radius:40rpx;
+
+.searchInput {
+  flex: 10;
+  border: 2rpx solid blue;
+  border-radius: 40rpx;
   margin-right: 5rpx;
 }
 
-.searchButton{
-  flex:1;  
-  padding: 2rpx;  
+.searchButton {
+  flex: 1;
+  padding: 2rpx;
   background-color: red;
   color: white;
   line-height: 50rpx;
   font-size: 25rpx;
-  border-radius:40rpx;
+  border-radius: 40rpx;
   margin-left: 2rpx;
   margin-right: 2rpx;
 }
 
 .contextAll {
-  flex:18;
+  flex: 1;
   margin: 5rpx;
   border: 2rpx solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.topClass {
+  border: 2rpx solid red;
+  height: 50rpx;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+
+.innerClass {
+  flex: 1;
+  border-right: 5rpx double rgb(168, 165, 165);
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10rpx;
+  padding-right: 5rpx;  
+}
+
+.active {
+  color: red;
+}
+
+.innerClass view {
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  padding: 10rpx;
+  background-color: #f0f0f0;
+}
+
+
+
+
+.neighborhood {
+  width: 300rpx;
+  text-align: center;
+  background-color: rgb(243, 235, 235);
+  line-height: 50rpx;
+  white-space: nowrap;
+  /* 禁止文字换行 */
+  overflow: hidden;
+  /* 隐藏溢出部分 */
+  text-overflow: ellipsis;
+  /* 显示省略号 */
+  border-radius: 30rpx;
+}
+
+.centerContext {
+  flex: 1;
+  border: 2rpx solid blue;
 }

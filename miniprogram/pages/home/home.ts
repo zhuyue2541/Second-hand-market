@@ -4,10 +4,28 @@ Page({
   /**
    * 页面的初始数据
    */
+  // data: {
+  //   searchKeyword: '', // 搜索关键词
+  //   searchResult: ' ' ,// 搜索结果
+    
+  // },
   data: {
-    searchKeyword: '', // 搜索关键词
-    searchResult: ' ' // 搜索结果
+    neighborhoodArray: ['雅居乐-湖居笔记', '智慧城'],
+    neighborhoodIndex: 0,
+    currentTab: '0'
   },
+  bindPickerChange: function(e) {
+    this.setData({
+      neighborhoodIndex: e.detail.value
+    })
+  },
+  switchTab: function(e) {    
+    const index = e.currentTarget.dataset.index;    
+    this.setData({
+      currentTab: index      
+    });    
+  },
+
   onInput(e: { detail: { value: any; }; }) {
     console.log(e),
     this.setData({
