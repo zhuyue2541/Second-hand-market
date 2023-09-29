@@ -108,7 +108,7 @@
   border-right: 2rpx solid red;    
 }
 .itemClassification scroll-view{
-  height: 900rpx;
+  height: 90vh;  
 }
 .selected {
   color: red;
@@ -119,8 +119,23 @@
   padding-top: 30rpx;
 }
 
-.product{
+/* 中心商品展示 */
+.productShow{
   /* border: 2rpx solid blue; */
   padding-left: 6rpx;
   flex: 1;  
+}
+.scroll-view-container{  
+  height: 90vh;
+}
+
+.product{
+  border-bottom: 2rpx double #ddd;
+  height: 100rpx;
+  display: flex;
+  padding-top: 10rpx;
+}
+.productName{
+  border-right: 2rpx dotted #ddd;
+  padding-right: 5rpx;
 }

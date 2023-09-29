@@ -10,8 +10,27 @@ Page({
 
   // },
   data: {
+    //商品
+    products: [
+      {id:123,name:"书桌",description:"宽1.6米，高55cm" ,"classify":"其他",buyOrSell:"出售" },
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"出售" ,classify:"手机"},
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"出售" ,classify:"手机"},
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"赠送" ,classify:"手机"},
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"赠送" ,classify:"手机"},
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"赠送" ,classify:"手机"},
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},
+      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},{id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"卖" ,classify:"手机"},{id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"卖" ,classify:"手机"},{id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"卖" ,classify:"手机"}
+    ]      ,
+    page: 1,
+    pageSize: 10,
+
+    // 小区
     neighborhoodArray: ['雅居乐-湖居笔记', '智慧城'],
     neighborhoodIndex: 0,
+
     currentTab: '0',
     categories: [{ name: "所有", selected: true },
     { name: "文具", selected: false },
@@ -46,6 +65,9 @@ Page({
     this.setData({
       neighborhoodIndex: e.detail.value
     })
+  },
+  loadMoreData:function(e){
+
   },
   switchTab: function (e) {
     const index = e.currentTarget.dataset.index;

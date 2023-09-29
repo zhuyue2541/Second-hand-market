@@ -32,15 +32,27 @@
       <!-- 物品分类 -->
       <view class="itemClassification">
         <scroll-view scroll-y>
-          <view  wx:for="{{categories}}" wx:key="{{index}}" bindtap="selectCategory" data-index="{{index}}" class="{{item.selected ? 'selected' : ''}}">
+          <view wx:for="{{categories}}" wx:key="{{index}}" bindtap="selectCategory" data-index="{{index}}" class="{{item.selected ? 'selected' : ''}}">
             {{item.name}}
           </view>
-        </scroll-view>        
+        </scroll-view>
       </view>
 
       <!-- 物品展示区 -->
-      <view class="product">
-        商品
+      <view class="productShow">
+        <scroll-view class="scroll-view-container" scroll-y="{{true}}" bindscrolltolower="loadMoreData">
+          <view class="content">
+            <block wx:for="{{products}}" wx:key="index">
+              <navigator class="product" url="/pages/product/product">
+                <!-- <image class="product-image" src={{product-image}}></image> -->
+                <view class="productName">
+                  {{item.buyOrSell}}：{{item.name}}
+                </view>
+                <view class="product-description">{{item.description}}</view>
+              </navigator>
+            </block>
+          </view>
+        </scroll-view>
       </view>
     </view>
   </view>
