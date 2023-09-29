@@ -5,15 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    productId:"0"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-
+  onLoad: function(options) {
+    const param1 = options.param1;
+    // const param2 = options.param2;
+    console.log(options);
+    // 使用参数进行后续操作
+    this.setData({
+      productId:param1
+    })
   },
+  // onLoad(): function(options) {
+  //   console.log(options);
+  //   const product-id=options.param1;
+  //   this.setData({
+  //     productId:product-id;
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

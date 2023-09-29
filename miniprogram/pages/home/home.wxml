@@ -42,8 +42,8 @@
       <view class="productShow">
         <scroll-view class="scroll-view-container" scroll-y="{{true}}" bindscrolltolower="loadMoreData">
           <view class="content">
-            <block wx:for="{{products}}" wx:key="index">
-              <navigator class="product" url="/pages/product/product">
+            <block wx:for="{{products}}" wx:key="index" >
+              <navigator class="product" url="/pages/product/product?param1={{item.id}}" data-nid="{{item.id}}">
                 <!-- <image class="product-image" src={{product-image}}></image> -->
                 <view class="productName">
                   {{item.buyOrSell}}：{{item.name}}
