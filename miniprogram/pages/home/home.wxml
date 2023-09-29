@@ -42,13 +42,16 @@
       <view class="productShow">
         <scroll-view class="scroll-view-container" scroll-y="{{true}}" bindscrolltolower="loadMoreData">
           <view class="content">
-            <block wx:for="{{products}}" wx:key="index" >
+            <block wx:for="{{products}}" wx:key="index">
               <navigator class="product" url="/pages/product/product?param1={{item.id}}" data-nid="{{item.id}}">
-                <!-- <image class="product-image" src={{product-image}}></image> -->
-                <view class="productName">
-                  {{item.buyOrSell}}：{{item.name}}
+                <image class="product-image" src="/images/product/OIP-C.jpg" mode="aspectFill"></image>
+                <view class="product-des">
+                  <view class="productName">
+                    {{item.buyOrSell}}：{{item.name}}
+                  </view>
+                  <view class="product-description">{{item.description}}</view>
                 </view>
-                <view class="product-description">{{item.description}}</view>
+
               </navigator>
             </block>
           </view>

@@ -12,9 +12,9 @@ Page({
   data: {
     //商品
     products: [
-      {id:123,name:"书桌",description:"宽1.6米，高55cm" ,"classify":"其他",buyOrSell:"出售" },
-      {id:124,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"出售" ,classify:"手机"},
-      {id:125,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"出售" ,classify:"手机"},
+      {id:123,name:"书桌",description:"宽1.6米，高55cm" ,"classify":"其他",buyOrSell:"出售",image:"/images/product/OIP-C.jpg" },
+      {id:124,name:"手机1f3a5ef13a5ef1a31",description:"iphone6s,功能正常1234354354a35ef4a35f4a34fa35e4f3a5ef13ase5f4e3aw5f4 fse3f5a1se3f5a1ef3a5ef13se5f1a3ef13f1e3f1" ,buyOrSell:"出售" ,classify:"手机"},
+      {id:125,name:"手机",description:"iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常" ,buyOrSell:"出售" ,classify:"手机"},
       {id:126,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"赠送" ,classify:"手机"},
       {id:127,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"赠送" ,classify:"手机"},
       {id:128,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"赠送" ,classify:"手机"},
