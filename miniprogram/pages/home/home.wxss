@@ -1,5 +1,5 @@
 .outerContainer {
-  border: 1rpx solid red;
+  /* border: 1rpx solid red; */
   margin: 5rpx;
   height: 99vh;
   display: flex;
@@ -21,7 +21,7 @@
 
 .searchInput {
   flex: 10;
-  border: 2rpx solid blue;
+  /* border: 2rpx solid blue; */
   border-radius: 40rpx;
   margin-right: 5rpx;
 }
@@ -80,9 +80,6 @@
   background-color: #f0f0f0;
 }
 
-
-
-
 .neighborhood {
   width: 300rpx;
   text-align: center;
@@ -94,10 +91,36 @@
   /* 隐藏溢出部分 */
   text-overflow: ellipsis;
   /* 显示省略号 */
-  border-radius: 30rpx;
+  border-radius: 30rpx;  
 }
 
 .centerContext {
   flex: 1;
   border: 2rpx solid blue;
+  margin-top: 10rpx;
+  flex-direction: row;
+  display: flex;
+  align-items:stretch;  
+}
+
+.itemClassification{
+  width: 150rpx;
+  border-right: 2rpx solid red;    
+}
+.itemClassification scroll-view{
+  height: 900rpx;
+}
+.selected {
+  color: red;
+}
+/* 左侧分类 */
+.itemClassification view{
+  border: 1rpx dotted blue;
+  padding-top: 30rpx;
+}
+
+.product{
+  /* border: 2rpx solid blue; */
+  padding-left: 6rpx;
+  flex: 1;  
 }

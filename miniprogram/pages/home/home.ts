@@ -7,34 +7,62 @@ Page({
   // data: {
   //   searchKeyword: '', // 搜索关键词
   //   searchResult: ' ' ,// 搜索结果
-    
+
   // },
   data: {
     neighborhoodArray: ['雅居乐-湖居笔记', '智慧城'],
     neighborhoodIndex: 0,
-    currentTab: '0'
+    currentTab: '0',
+    categories: [{ name: "所有", selected: true },
+    { name: "文具", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },
+    { name: "电子产品1546fe", selected: false },]
   },
-  bindPickerChange: function(e) {
+  selectCategory: function (e) {
+    const index = e.currentTarget.dataset.index;
+    console.log(index);
+    const categories = this.data.categories;
+    categories.forEach((item, i) => {
+      item.selected = i === index;
+    });
+    this.setData({
+      categories: categories
+    });
+  },
+  bindPickerChange: function (e) {
     this.setData({
       neighborhoodIndex: e.detail.value
     })
   },
-  switchTab: function(e) {    
-    const index = e.currentTarget.dataset.index;    
+  switchTab: function (e) {
+    const index = e.currentTarget.dataset.index;
     this.setData({
-      currentTab: index      
-    });    
+      currentTab: index
+    });
   },
 
   onInput(e: { detail: { value: any; }; }) {
     console.log(e),
-    this.setData({
-      searchKeyword: e.detail.value      
-    });
+      this.setData({
+        searchKeyword: e.detail.value
+      });
   },
   onSearch(e: any) {
     console.log(e),
-    console.log(this.data.searchKeyword)
+      console.log(this.data.searchKeyword)
     // 这里可以根据搜索关键词进行搜索操作，然后更新搜索结果
     // 示例中直接将搜索关键词展示在搜索结果区域
     this.setData({
@@ -75,7 +103,7 @@ Page({
   onUnload() {
 
   },
- 
+
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

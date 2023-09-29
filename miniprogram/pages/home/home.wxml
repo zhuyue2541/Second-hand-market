@@ -10,12 +10,6 @@
     <!-- 顶部分类：首页/免费送/出售/求购  + 所在小区显示 -->
     <view class="topClass">
       <!-- 左侧分类 -->
-      <!-- <view class="innerClass">
-        <view class="home1">首页</view>
-        <view class="home2">赠送</view>
-        <view class="home3">出售</view>
-        <view class="home4">求购</view>
-      </view> -->
       <view class="innerClass">
         <view class="{{currentTab === '0' ? 'active' : ''}}" bindtap="switchTab" data-index="0">首页</view>
         <view class="{{currentTab === '1' ? 'active' : ''}}" bindtap="switchTab" data-index="1">赠送</view>
@@ -35,7 +29,19 @@
     </view>
     <!-- 中心内容 -->
     <view class="centerContext">
-      中心内容
+      <!-- 物品分类 -->
+      <view class="itemClassification">
+        <scroll-view scroll-y>
+          <view  wx:for="{{categories}}" wx:key="{{index}}" bindtap="selectCategory" data-index="{{index}}" class="{{item.selected ? 'selected' : ''}}">
+            {{item.name}}
+          </view>
+        </scroll-view>        
+      </view>
+
+      <!-- 物品展示区 -->
+      <view class="product">
+        商品
+      </view>
     </view>
   </view>
 </view>
