@@ -1,3 +1,28 @@
 <!--pages/product/product.wxml-->
-<text>pages/product/product.wxml</text>
-<view>{{productId}}</view>
+
+<view class="outContainer">
+  <view class="firstLine">
+    <view>{{currentProduct.buyOrSell}}:{{currentProduct.name}}</view>
+    <button class="lockProduct" style="width:100rpx">锁定</button>
+  </view>
+  <view class="publisher">
+    <view style="font-weight: bold;">
+      发布者信息
+    </view>
+    <view class="publisherDetail">
+      <text selectable="true">微信: {{currentProduct.publisher.wxName}}</text>
+      <text selectable="true">电话: {{currentProduct.publisher.telNo}}</text>
+      <text selectable="true">地址: {{currentProduct.publisher.position}}</text>
+    </view>
+  </view>
+  <view>
+    <image wx:if="{{currentProduct.image}}" src="{{currentProduct.image}}" class="secondLine" mode="aspectFit"></image>
+    <!-- <image class="secondLine" src="{{currentProduct.image}}" mode="aspectFit"></image> -->
+    
+  </view>
+  
+
+  <scroll-view class="thirdLine">
+    <text  selectable="true">  {{currentProduct.description}}</text>
+  </scroll-view>
+</view>

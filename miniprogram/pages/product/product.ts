@@ -1,3 +1,4 @@
+const app = getApp()
 // pages/product/product.ts
 Page({
 
@@ -5,19 +6,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    productId:"0"
+    productId: "0",
+    currentProduct: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    const param1 = options.param1;
-    // const param2 = options.param2;
-    console.log(options);
+  onLoad: function (options) {
+    const param1 = options.param1;    
+    console.log(app.globalData.currentProduct);
     // 使用参数进行后续操作
     this.setData({
-      productId:param1
+      productId: param1,
+      currentProduct: app.globalData.currentProduct
     })
   },
   // onLoad(): function(options) {

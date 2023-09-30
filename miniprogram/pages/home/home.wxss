@@ -156,7 +156,6 @@
 }
 
 .productName{
-  /* border-bottom: 1rpx dotted #85929E; */
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;

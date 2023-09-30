@@ -1,1 +1,64 @@
 /* pages/product/product.wxss */
+page {
+  background-color: #F8F9F9;
+}
+
+.firstLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lockProduct {
+  height: 30px;
+  /* 设置高度，与 view 的高度相同 */
+  background-color: #D6DBDF;
+  /* 设置背景颜色，可以根据实际需求调整 */
+  text-align: center;
+  /* 文字居中 */
+  line-height: 30px;
+  border-radius: 20rpx;
+  color: #F1948A;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 2rpx;
+  /* 设置按钮的内边距，可以根据实际需求调整 */
+}
+
+.firstLine view {
+  flex: 1;
+  height: 30px;
+  /* 设置高度，可以根据实际需求调整 */
+  text-align: center;
+  /* 文字居中 */
+  line-height: 30px;
+  color: #1F618D;
+  border-bottom: 1rpx dotted #D5D8DC;
+}
+.publisher{
+  /* border-bottom: 1rpx solid #D5D8DC; */
+  margin-left: 15rpx;
+  font-size: smaller;  
+}
+.publisherDetail{
+  display: flex;
+  flex-direction: row;  
+  border-bottom: 1rpx solid #D5D8DC;
+  border-top: 1rpx solid #D5D8DC;
+}
+.publisherDetail text{
+  border-right: 1rpx dotted #D5D8DC;
+  margin-right: 10rpx;
+  margin-left:5rpx;
+  
+}
+
+.secondLine {  
+  /* border: 4rpx solid black; */  
+  width: 80%;  
+  margin: 0 auto;
+  display: flex; 
+  justify-content: center; /** flex 属性， 水平居中**/  
+}
+.thirdLine{
+  margin: 10rpx;  
+}

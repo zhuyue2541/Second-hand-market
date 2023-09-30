@@ -1,4 +1,5 @@
 // pages/home/home.ts
+const app = getApp()
 Page({
 
   /**
@@ -12,18 +13,18 @@ Page({
   data: {
     //商品
     products: [
-      {id:123,name:"书桌",description:"宽1.6米，高55cm" ,"classify":"其他",buyOrSell:"出售",image:"/images/product/OIP-C.jpg" },
-      {id:124,name:"手机1f3a5ef13a5ef1a31",description:"iphone6s,功能正常1234354354a35ef4a35f4a34fa35e4f3a5ef13ase5f4e3aw5f4 fse3f5a1se3f5a1ef3a5ef13se5f1a3ef13f1e3f1" ,buyOrSell:"出售" ,classify:"手机"},
-      {id:125,name:"手机",description:"iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常" ,buyOrSell:"出售" ,classify:"手机"},
-      {id:126,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"赠送" ,classify:"手机"},
-      {id:127,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"赠送" ,classify:"手机"},
-      {id:128,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"赠送" ,classify:"手机"},
-      {id:129,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},
-      {id:130,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},
-      {id:131,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},
-      {id:133,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},
-      {id:154,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"求购" ,classify:"手机"},{id:156,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"卖" ,classify:"手机"},{id:157,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"卖" ,classify:"手机"},{id:158,name:"手机",description:"iphone6s,功能正常" ,buyOrSell:"卖" ,classify:"手机"}
-    ]      ,
+      { id: 123, name: "书桌", description: "宽1.6米，高55cm.要在微信小程序中设置图片的 aspectFit 模式，并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中：.并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中", "classify": "其他", buyOrSell: "出售", image: "/images/product/OIP-C.jpg" ,publisher:{wxName:"zhuyue1242",telNo:"123465421fe654",position:"F区10号楼"}},
+      { id: 124, image: "/images/product/OIP-C.jpg" ,name: "手机1f3a5ef13a5ef1a31", description: "iphone6s,功能正常1234354354a35ef4a35f4a34fa35e4f3a5ef13ase5f4e3aw5f4 fse3f5a1se3f5a1ef3a5ef13se5f1a3ef13f1e3f1", buyOrSell: "出售", classify: "手机" },
+      { id: 125, name: "手机",image: "/images/product/OIP-C.jpg" , description: "iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常iphone6s,功能正常", buyOrSell: "出售", classify: "手机" },
+      { id: 126, name: "手机", description: "iphone6s,功能正常", buyOrSell: "赠送", classify: "手机" },
+      { id: 127, name: "手机", description: "iphone6s,功能正常", buyOrSell: "赠送", classify: "手机" },
+      { id: 128, name: "手机", description: "iphone6s,功能正常", buyOrSell: "赠送", classify: "手机" },
+      { id: 129, name: "手机", description: "iphone6s,功能正常", buyOrSell: "求购", classify: "手机" },
+      { id: 130, name: "手机", description: "iphone6s,功能正常", buyOrSell: "求购", classify: "手机" },
+      { id: 131, name: "手机", description: "iphone6s,功能正常", buyOrSell: "求购", classify: "手机" },
+      { id: 133, name: "手机", description: "iphone6s,功能正常", buyOrSell: "求购", classify: "手机" },
+      { id: 154, name: "手机", description: "iphone6s,功能正常", buyOrSell: "求购", classify: "手机" }, { id: 156, name: "手机", description: "iphone6s,功能正常", buyOrSell: "卖", classify: "手机" }, { id: 157, name: "手机", description: "iphone6s,功能正常", buyOrSell: "卖", classify: "手机" }, { id: 158, name: "手机", description: "iphone6s,功能正常", buyOrSell: "卖", classify: "手机" }
+    ],
     page: 1,
     pageSize: 10,
 
@@ -50,6 +51,16 @@ Page({
     { name: "电子产品1546fe", selected: false },
     { name: "电子产品1546fe", selected: false },]
   },
+  selectProduct: function (e) {
+    console.log(e.currentTarget.dataset.nid);
+    const nid = e.currentTarget.dataset.nid;
+    this.data.products.forEach((item, _) => {
+      if (item.id == nid) {
+        console.log(item);
+        app.globalData.currentProduct = item;
+      }
+    });
+  },
   selectCategory: function (e) {
     const index = e.currentTarget.dataset.index;
     console.log(index);
@@ -66,7 +77,7 @@ Page({
       neighborhoodIndex: e.detail.value
     })
   },
-  loadMoreData:function(e){
+  loadMoreData: function (e) {
 
   },
   switchTab: function (e) {
