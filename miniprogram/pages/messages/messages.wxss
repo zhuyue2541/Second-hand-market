@@ -11,6 +11,7 @@
   flex-direction: row;
 }
 .leftName{
+  height: 300rpx;
   width: 40rpx;
   padding: 5rpx;
   border-right: 1rpx solid red;
@@ -77,8 +78,17 @@
 
 .current{
   border: 1rpx solid black;
-  
+  height: 300rpx;
+  display: flex;
+  flex-direction: row;
 }
+
+.myPublish{
+  width: 64vh;
+  height: 300rpx;  
+}
+
+
 .history{
   border: 1rpx solid black;  
 }

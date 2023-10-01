@@ -15,7 +15,7 @@
     <view class="lockContentRight">
       <!-- 我发布的 -->
       <scroll-view scroll-y class="myBeLock">
-        <view wx:for="{{myLocking}}" wx:key="id" class="record" >
+        <view wx:for="{{myLocking}}" wx:key="id" class="record">
           <view bindtap="showDetail" data-nid="{{item.id}}" data-isMyProduct="true">{{item.buyOrSell}}:{{item.name}}</view>
           <button class="confirmButton" bindtap="showConfirm" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;">取消</button>
         </view>
@@ -24,7 +24,7 @@
 
       <!-- 我锁定的 -->
       <scroll-view scroll-y class="myLock">
-        <view wx:for="{{beLocking}}" wx:key="id" class="record" bindtap="selectMyProduct" >
+        <view wx:for="{{beLocking}}" wx:key="id" class="record" bindtap="selectMyProduct">
           <view bindtap="showDetail" data-nid="{{item.id}}" data-isMyProduct="false">{{item.buyOrSell}}:{{item.name}}</view>
           <button class="confirmButton" bindtap="showConfirm" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;">取消</button>
         </view>
@@ -35,6 +35,16 @@
 
   <!-- 求购或者出售 -->
   <view class="current">
+    <view class="leftName">
+      当前发布中
+    </view>
+    <view>
+      <scroll-view scroll-y class="myPublish">
+        <view wx:for="{{myPublish}}" wx:key="id" class="record">
+          <view bindtap="showDetail" data-nid="{{item.id}}" data-isMyProduct="false">{{item.buyOrSell}}:{{item.name}}</view>          
+        </view>
+      </scroll-view>
+    </view>
   </view>
   <!-- 历史记录 -->
   <view class="history">
