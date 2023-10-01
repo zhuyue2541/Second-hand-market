@@ -8,15 +8,15 @@
     </view>
     <!-- 中间内容 -->
     <view class="lockContent">
-      <view class="lockedding">被锁定的</view>
+      <view class="lockedding">我发布的</view>
       <view class="locking">我锁定的</view>
     </view>
 
     <view class="lockContentRight">
-      <!-- 我的被锁定 -->
+      <!-- 我发布的 -->
       <scroll-view scroll-y class="myBeLock">
-        <view wx:for="{{myLocking}}" wx:key="id" class="record" bindtap="selectProduct">
-          <view>{{item.buyOrSell}}:{{item.name}}</view>
+        <view wx:for="{{myLocking}}" wx:key="id" class="record" >
+          <view bindtap="showDetail" data-nid="{{item.id}}" data-isMyProduct="true">{{item.buyOrSell}}:{{item.name}}</view>
           <button class="confirmButton" bindtap="showConfirm" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;">取消</button>
         </view>
       </scroll-view>
@@ -24,8 +24,8 @@
 
       <!-- 我锁定的 -->
       <scroll-view scroll-y class="myLock">
-        <view wx:for="{{beLocking}}" wx:key="id" class="record" bindtap="selectMyProduct">
-          <view>{{item.buyOrSell}}:{{item.name}}</view>
+        <view wx:for="{{beLocking}}" wx:key="id" class="record" bindtap="selectMyProduct" >
+          <view bindtap="showDetail" data-nid="{{item.id}}" data-isMyProduct="false">{{item.buyOrSell}}:{{item.name}}</view>
           <button class="confirmButton" bindtap="showConfirm" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;">取消</button>
         </view>
       </scroll-view>

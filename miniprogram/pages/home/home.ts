@@ -1,5 +1,5 @@
 // pages/home/home.ts
-const app = getApp()
+
 Page({
 
   /**
@@ -52,6 +52,7 @@ Page({
     { name: "电子产品1546fe", selected: false },]
   },
   selectProduct: function (e) {
+    var app = getApp()
     console.log(e.currentTarget.dataset.nid);
     const nid = e.currentTarget.dataset.nid;
     this.data.products.forEach((item, _) => {

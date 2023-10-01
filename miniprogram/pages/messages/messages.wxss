@@ -39,9 +39,12 @@
   height: 300rpx;
 }
 
+.myBeLock{
+  border-bottom: 2rpx double black;
+}
+
 .myLock, .myBeLock{
-  height: 150rpx ;  
-  border-bottom: 1rpx solid black;
+  height: 150rpx ;    
 }
 
 .record{
@@ -68,9 +71,7 @@
   border-radius: 10rpx;
   color: #F1948A;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  padding: 2rpx;
-  
-  
+  padding: 2rpx;   
 }
 
 

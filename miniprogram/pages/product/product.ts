@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    productId: "0",
+    // productId: "0",
+    showLockButton:true,
+    isMyProduct:true,
     currentProduct: null
   },
 
@@ -14,11 +16,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const param1 = options.param1;    
+    const isShowLock = options.isShowLock == 'true';  
+    const isMyProduct = options.isMyProduct == 'true'; 
+    console.log("=======isMyProduct:",isMyProduct) 
     console.log(app.globalData.currentProduct);
     // 使用参数进行后续操作
-    this.setData({
-      productId: param1,
+    this.setData({   
+      showLockButton: isShowLock,
+      isMyProduct:isMyProduct,
       currentProduct: app.globalData.currentProduct
     })
   },
