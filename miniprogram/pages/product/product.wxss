@@ -6,6 +6,7 @@ page {
 .firstLine {
   display: flex;
   align-items: center;
+  margin-right: 10rpx;
   justify-content: space-between;
 }
 
@@ -59,6 +60,10 @@ page {
   display: flex; 
   justify-content: center; /** flex 属性， 水平居中**/  
 }
-.thirdLine{
-  margin: 10rpx;  
+.thirdLine {
+  /* margin: 10rpx;   */
+  width: auto;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  box-sizing:border-box;
 }

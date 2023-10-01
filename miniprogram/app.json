@@ -21,7 +21,7 @@
       },
       {
         "pagePath": "pages/messages/messages",
-        "text":"消息",
+        "text":"交易",
         "iconPath": "/images/tarBar/message-off.png",
         "selectedIconPath": "/images/tarBar/message-on.png"
       },

@@ -23,6 +23,6 @@
   
 
   <scroll-view class="thirdLine">
-    <text  selectable="true">  {{currentProduct.description}}</text>
+    <text  selectable="true" style="margin-right: 20rpx; margin-left:20rpx; ">   {{currentProduct.description}}</text>
   </scroll-view>
 </view>

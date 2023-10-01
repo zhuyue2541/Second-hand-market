@@ -1,1 +1,83 @@
 /* pages/messages/messages.wxss */
+.outContainer{
+  display: flex;
+  flex-direction: column;
+  border: 1rpx solid red;  
+  
+}
+.lock{
+  border: 1rpx solid black;
+  display: flex;
+  flex-direction: row;
+}
+.leftName{
+  width: 40rpx;
+  padding: 5rpx;
+  border-right: 1rpx solid red;
+}
+
+.lockContent{
+  width: 100rpx;
+  display: flex;
+  flex-direction: column;
+  height: 300rpx;
+}
+.lockContent view{
+  height: 50vh;
+}
+.lockedding{
+  border-bottom: 1rpx solid black;  
+}
+
+
+.lockContentRight{
+  flex: 1;
+  border: 1rpx solid red;
+  height: 300rpx;
+  display: flex;
+  flex-direction: column;
+  height: 300rpx;
+}
+
+.myLock, .myBeLock{
+  height: 150rpx ;  
+  border-bottom: 1rpx solid black;
+}
+
+.record{
+  border-bottom: 1rpx dotted #839192;
+  height: 50rpx;
+  line-height: 60rpx;
+  padding: 5rpx;
+  display: flex;
+  /* flex-direction: row; */
+  /* justify-content:space-between; */
+  /* align-items:center; */
+}
+.record view{
+  flex: 1;
+  align-self: flex-start;
+  align-items:center;
+}
+.confirmButton{    
+  background-color: #D6DBDF;  
+  text-align: center;
+  align-items:center;
+  /* 文字居中 */
+  line-height: 20px;
+  border-radius: 10rpx;
+  color: #F1948A;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 2rpx;
+  
+  
+}
+
+
+.current{
+  border: 1rpx solid black;
+  
+}
+.history{
+  border: 1rpx solid black;  
+}
