@@ -90,5 +90,17 @@
 
 
 .history{
-  border: 1rpx solid black;  
+  border: 1rpx solid black;    
+  height: 40vh;
+  display: flex;
+  /* flex-direction: row; */
+}
+.historyLeftName{
+  flex:1;  
+  height: 40vh;
+}
+.myPublishHistory{  
+  height: 40vh;  
+  border-left:1rpx solid red ;
+  width: 64vh;
 }

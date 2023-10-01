@@ -48,6 +48,15 @@
   </view>
   <!-- 历史记录 -->
   <view class="history">
-
+    <view class="historyLeftName">
+      我的历史记录
+    </view>
+    <view>
+      <scroll-view scroll-y class="myPublishHistory">
+        <view wx:for="{{myPublish}}" wx:key="id" class="record">
+          <view bindtap="showDetail" data-nid="{{item.id}}" data-isMyProduct="false">{{item.buyOrSell}}:{{item.name}}</view>          
+        </view>
+      </scroll-view>
+    </view>
   </view>
 </view>
