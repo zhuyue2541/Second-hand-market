@@ -3,7 +3,8 @@
     "pages/home/home",
     "pages/messages/messages",
     "pages/contact/contact",
-    "pages/product/product"
+    "pages/product/product",
+    "pages/publish/publish"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,6 +19,12 @@
         "text":"首页",
         "iconPath": "/images/tarBar/home-off.png",
         "selectedIconPath": "/images/tarBar/home-on.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text":"发布",
+        "iconPath": "/images/tarBar/publish-off.png",
+        "selectedIconPath": "/images/tarBar/publish-on.png"
       },
       {
         "pagePath": "pages/messages/messages",
