@@ -71,3 +71,8 @@ page {
   display: flex;
   justify-content: flex-end;
 }
+
+.publish-time{
+  display: flex;
+  justify-content: space-between;
+}

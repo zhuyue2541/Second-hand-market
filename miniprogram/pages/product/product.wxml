@@ -25,8 +25,9 @@
       </block>
     </view>
   </view>
-  <view class="publish-time" >
-    <text selectable="true" style="font-size: 30rpx;">发布时间:{{currentProduct.publishTime}}</text>
+  <view class="publish-time" style="font-size: 30rpx;">
+    <text selectable="true" >发布时间:{{currentProduct.publishTime}}</text>
+    <text wx:if="{{currentProduct.endTime !== ''}}" style="padding-left:10rpx;">结束时间:{{currentProduct.endTime}}</text>
   </view>
   <view>
     <image wx:if="{{currentProduct.image}}" src="{{currentProduct.image}}" class="secondLine" mode="aspectFit"></image>
