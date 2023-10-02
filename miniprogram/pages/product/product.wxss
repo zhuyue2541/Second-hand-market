@@ -50,7 +50,6 @@ page {
   border-right: 1rpx dotted #D5D8DC;
   margin-right: 10rpx;
   margin-left:5rpx;
-  
 }
 
 .secondLine {  
@@ -66,4 +65,9 @@ page {
   margin-left: 20rpx;
   margin-right: 20rpx;
   box-sizing:border-box;
+}
+.publish-time {
+  border-bottom: 1rpx solid #D5D8DC;
+  display: flex;
+  justify-content: flex-end;
 }

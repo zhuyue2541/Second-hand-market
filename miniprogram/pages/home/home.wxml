@@ -43,7 +43,7 @@
         <scroll-view class="scroll-view-container" scroll-y="{{true}}" bindscrolltolower="loadMoreData">
           <view class="content">
             <block wx:for="{{products}}" wx:key="index">
-              <navigator class="product" url="/pages/product/product?isShowLock=true,ismyproduct=false" data-nid="{{item.id}}" bindtap="selectProduct">
+              <navigator class="product" url="/pages/product/product?isShowLock=true&ismyproduct=false" data-nid="{{item.id}}" bindtap="selectProduct">
                 <image class="product-image" src="/images/product/OIP-C.jpg" mode="aspectFill"></image>
                 <view class="product-des">
                   <view class="productName">

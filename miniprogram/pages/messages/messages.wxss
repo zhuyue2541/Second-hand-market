@@ -58,7 +58,7 @@
 }
 
 .record {
-  border-bottom: 1rpx dotted #839192;
+  border-bottom: 1rpx dotted #839192;  
   height: 50rpx;
   line-height: 60rpx;
   padding: 5rpx;
@@ -68,10 +68,10 @@
 }
 
 .record view {
-  /* flex: 1; */
-  /* align-self: flex-start; */
+  flex: 1;  
   align-items: center;
   padding-left: 20rpx;
+  /* border-right: 1rpx dotted #839192;   */
 }
 
 .confirmButton {

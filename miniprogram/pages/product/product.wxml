@@ -9,31 +9,33 @@
     <view wx:if="{{isMyProduct}}" style="font-weight: bold;">
       锁定者信息
     </view>
-    <view wx:else style="font-weight: bold;">      
+    <view wx:else style="font-weight: bold;">
       发布者信息
     </view>
     <view class="publisherDetail">
-    <block  wx:if="{{isMyProduct}}">
-      <text selectable="true">微信: {{currentProduct.locker.wxName}}</text>
-      <text selectable="true">电话: {{currentProduct.locker.telNo}}</text>
-      <text selectable="true">地址: {{currentProduct.locker.position}}</text>
-    </block>
-    <block  wx:else>
-      <text selectable="true">微信: {{currentProduct.publisher.wxName}}</text>
-      <text selectable="true">电话: {{currentProduct.publisher.telNo}}</text>
-      <text selectable="true">地址: {{currentProduct.publisher.position}}</text>
-    </block>
-      
+      <block wx:if="{{isMyProduct}}">
+        <text selectable="true">微信: {{currentProduct.locker.wxName}}</text>
+        <text selectable="true">电话: {{currentProduct.locker.telNo}}</text>
+        <text selectable="true">地址: {{currentProduct.locker.position}}</text>
+      </block>
+      <block wx:else>
+        <text selectable="true">微信: {{currentProduct.publisher.wxName}}</text>
+        <text selectable="true">电话: {{currentProduct.publisher.telNo}}</text>
+        <text selectable="true">地址: {{currentProduct.publisher.position}}</text>
+      </block>
     </view>
+  </view>
+  <view class="publish-time" >
+    <text selectable="true" style="font-size: 30rpx;">发布时间:{{currentProduct.publishTime}}</text>
   </view>
   <view>
     <image wx:if="{{currentProduct.image}}" src="{{currentProduct.image}}" class="secondLine" mode="aspectFit"></image>
     <!-- <image class="secondLine" src="{{currentProduct.image}}" mode="aspectFit"></image> -->
-    
+
   </view>
-  
+
 
   <scroll-view class="thirdLine">
-    <text  selectable="true" style="margin-right: 20rpx; margin-left:20rpx; ">   {{currentProduct.description}}</text>
+    <text selectable="true" style="margin-right: 20rpx; margin-left:20rpx; "> {{currentProduct.description}}</text>
   </scroll-view>
 </view>
