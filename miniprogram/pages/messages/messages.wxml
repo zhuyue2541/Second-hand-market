@@ -17,7 +17,8 @@
       <scroll-view scroll-y class="myBeLock">
         <view wx:for="{{myLocking}}" wx:key="id" class="record">
           <view bindtap="showDetail" data-nid="{{item.id}}" data-isMyProduct="true">{{item.buyOrSell}}:{{item.name}}</view>
-          <button class="confirmButton" bindtap="showConfirm" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;" data-source="lock">取消</button>
+          <button class="confirmButton" bindtap="unlock" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;" data-source="lock">解锁</button>
+          <button class="confirmButton" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;" bindtap="confirm">确认</button>
         </view>
       </scroll-view>
 
@@ -26,7 +27,8 @@
       <scroll-view scroll-y class="myLock">
         <view wx:for="{{beLocking}}" wx:key="id" class="record" >
           <view bindtap="showDetail" data-nid="{{item.id}}" data-isMyProduct="false">{{item.buyOrSell}}:{{item.name}}</view>
-          <button class="confirmButton" bindtap="showConfirm" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;">取消</button>
+          <button class="confirmButton" bindtap="unlock" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;">解锁</button>
+          <button class="confirmButton" style="width:100rpx;height: 20px;float:right;margin-right: 5rpx;" bindtap="confirm">确认</button>
         </view>
       </scroll-view>
     </view>
