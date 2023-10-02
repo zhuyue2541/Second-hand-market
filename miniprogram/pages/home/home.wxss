@@ -127,7 +127,7 @@
 }
 
 .scroll-view-container{  
-  height: 88vh;
+  height: 88vh;  
 }
 
 .product{

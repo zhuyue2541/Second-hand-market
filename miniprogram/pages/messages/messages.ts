@@ -28,6 +28,30 @@ Page({
       }
     })
   },
+
+  showCancle: function (e) {
+    var source = e.currentTarget.dataset.source;
+    var content_tmp = "确定要删除发布吗？";
+    if(source == "history")
+    {
+      content_tmp = "确定删除历史记录吗";
+    }
+    wx.showModal({
+      title: '确认删除',
+      content: content_tmp,
+      // content: '确定要删除发布吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          // 在这里执行取消操作
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+          // 在这里执行取消操作
+        }
+      }
+    })
+  },
+
   showDetail: function (e) {
     var app = getApp()
     console.log(e.currentTarget.dataset);
