@@ -1,1 +1,64 @@
 /* pages/publish/publish.wxss */
+.outContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1rpx solid black;  
+  height: 99vh;
+}
+
+.firstLine {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  border: 1rpx solid #D5D8DC;
+  border-radius: 5rpx;
+  height: 55rpx;
+}
+
+.searchInput {
+  margin-left: 10rpx;
+  justify-content: space-around;
+  border-right: 1rpx solid #D5D8DC;
+  width: 500rpx;
+  line-height: 55rpx;
+}
+
+.section {
+  flex: 1;
+  margin-left: 10rpx;  
+  padding-left: 5rpx;
+  border-radius: 5rpx;
+  background-color: #D5D8DC;
+}
+
+.picker {
+  line-height: 55rpx;
+  
+}
+
+.describe{
+  margin: 10rpx;
+  border-top:1rpx solid #D5D8DC;
+  height: 300rpx;
+  border-bottom: 1rpx solid #D5D8DC;
+}
+.pictrue{
+  margin-top: 10rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 500rpx;  
+  border:1rpx solid #D5D8DC;
+  margin-left: 5rpx;
+}
+
+.pictrue view{
+  border:1rpx solid #D5D8DC;
+  width: 240rpx;
+  display: flex;
+  align-items: center;
+}
+.pictrue image{
+  width: 240rpx;  
+  height: 500rpx;  
+}

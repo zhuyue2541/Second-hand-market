@@ -11,6 +11,7 @@ Page({
     isMyProduct:true,
     currentProduct: null
   },
+  
   lockProduct(){
     wx.showModal({
       title: '确认锁定',
