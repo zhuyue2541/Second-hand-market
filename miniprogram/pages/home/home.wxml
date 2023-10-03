@@ -3,7 +3,7 @@
   <!-- 搜索框 -->
   <view class="searchBox">
     <input class="searchInput" placeholder="请输入关键词" maxlength="140" bindinput="onInput" />
-    <button class="searchButton" bindtap="onSearch">搜索</button>
+    <icon type="search" size="30" color="red" style="width: 80rpx;" bindtap="onSearch"></icon>
   </view>
   <!-- 所有内容 -->
   <view class="contextAll">

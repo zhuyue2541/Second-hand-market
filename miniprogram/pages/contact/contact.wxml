@@ -1,4 +1,5 @@
-<view class="container">
-  <view class="view1"></view>
-  <view class="view2"></view>
-</view>
+
+<view class="box">这是一个盒子</view>
+<button open-type="contact"> 联系客服</button>
+<button open-type="share"> share</button>
+<button open-type="feedback"> feedback</button>

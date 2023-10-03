@@ -19,13 +19,13 @@
         "text":"首页",
         "iconPath": "/images/tarBar/home-off.png",
         "selectedIconPath": "/images/tarBar/home-on.png"
-      },
+      }, 
       {
         "pagePath": "pages/publish/publish",
         "text":"发布",
         "iconPath": "/images/tarBar/publish-off.png",
         "selectedIconPath": "/images/tarBar/publish-on.png"
-      },
+      },              
       {
         "pagePath": "pages/messages/messages",
         "text":"交易",

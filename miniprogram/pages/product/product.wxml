@@ -3,7 +3,7 @@
 <view class="outContainer">
   <view class="firstLine">
     <view>{{currentProduct.buyOrSell}}:{{currentProduct.name}}</view>
-    <button wx:if="{{showLockButton}}" class="lockProduct" style="width:100rpx">锁定</button>
+    <button hidden="{{!showLockButton}}" bind:tap="lockProduct" class="lockProduct" style="width:100rpx">锁定</button>
   </view>
   <view class="publisher">
     <view wx:if="{{isMyProduct}}" style="font-weight: bold;">

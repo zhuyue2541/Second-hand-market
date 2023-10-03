@@ -1,23 +1,11 @@
 /* pages/contact/contact.wxss */
-.container {
-  display: flex;
-  flex-direction: column;
-  border: 10rpx double red;
-  /* height: 10vh; */
+
+.box::after {
+  content: "后缀";
+  color: red;
 }
 
-.view1 {
-  height: 100px; /* 上面view的固定高度 */
-  background-color: #f00;
-  width: 720rpx;
-  border: 3rpx solid red;
-  margin-bottom: 20rpx;
-  margin-top: 10rpx;
-  border-top: 10rpx;
-}
-
-.view2 {
-  flex: 1;
-  background-color: #00f;
-  border: 3rpx solid blue;
+.box::before {
+  content: "前缀";
+  color: blue;
 }

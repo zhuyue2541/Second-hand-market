@@ -11,6 +11,21 @@ Page({
     isMyProduct:true,
     currentProduct: null
   },
+  lockProduct(){
+    wx.showModal({
+      title: '确认锁定',
+      content: '确定该物品吗？锁定后其他用户无法锁定',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          // 在这里执行取消操作
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+          // 在这里执行取消操作
+        }
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

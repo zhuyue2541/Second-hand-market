@@ -26,18 +26,6 @@
   margin-right: 5rpx;
 }
 
-.searchButton {
-  flex: 1;
-  padding: 2rpx;
-  background-color: red;
-  color: white;
-  line-height: 50rpx;
-  font-size: 25rpx;
-  border-radius: 40rpx;
-  margin-left: 2rpx;
-  margin-right: 2rpx;
-}
-
 .contextAll {
   flex: 1;
   margin: 5rpx;
