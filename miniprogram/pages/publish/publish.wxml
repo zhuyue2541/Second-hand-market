@@ -1,5 +1,12 @@
 <!--pages/publish/publish.wxml-->
 <view class="outContainer">
+  <view class="neighborhood">
+    <picker bindchange="bindPosition" value="{{neighborhoodIndex}}" range="{{neighborhoodArray}}">
+      <view class="picker">
+        发布小区:[{{neighborhoodArray[neighborhoodIndex]}}]
+      </view>
+    </picker>
+  </view>
   <!-- 物品名称和类别 -->
   <view class="firstLine">
     <input class="searchInput" placeholder="请输入物品名称" maxlength="140" bindinput="onInput" value="{{productName}}" />
@@ -26,7 +33,7 @@
     <view class="pictrue2">
       <image wx:if="{{photos.length > 1}}" src="{{photos[1]}}" mode="{{pictureMode}}" bindlongpress="deletePicture" data-index="{{1}}"></image>
       <image wx:else src="{{avatar}}" mode="aspectFit"></image>
-      
+
     </view>
     <view class="pictrue3">
       <image wx:if="{{photos.length > 2}}" src="{{photos[2]}}" mode="{{pictureMode}}" bindlongpress="deletePicture" data-index="{{2}}"></image>
@@ -43,9 +50,10 @@
       </view>
     </picker>
   </view>
+  
   <!-- 提交和清空按钮 -->
   <view class="button">
-    <button class="clear" bindtap="clear">清空</button>    
-    <button class="submit" bindtap="submit">提交</button>    
+    <button class="clear" bindtap="clear">清空</button>
+    <button class="submit" bindtap="submit">提交</button>
   </view>
 </view>

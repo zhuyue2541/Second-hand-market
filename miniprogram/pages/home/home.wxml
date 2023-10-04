@@ -21,7 +21,7 @@
       <view class="neighborhood">
         <picker bindchange="bindPickerChange" value="{{neighborhoodIndex}}" range="{{neighborhoodArray}}">
           <view class="picker">
-            地点:{{neighborhoodArray[neighborhoodIndex]}}
+            地点:[{{neighborhoodArray[neighborhoodIndex]}}]
           </view>
         </picker>
       </view>

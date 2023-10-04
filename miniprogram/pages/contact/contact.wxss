@@ -1,11 +1,6 @@
 /* pages/contact/contact.wxss */
 
-.box::after {
-  content: "后缀";
-  color: red;
-}
-
-.box::before {
-  content: "前缀";
-  color: blue;
+.community{
+  border: 1rpx solid red;
+  height: 300rpx;
 }

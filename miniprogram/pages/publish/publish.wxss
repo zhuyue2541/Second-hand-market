@@ -7,6 +7,7 @@
 }
 
 .firstLine {
+  margin-top: 20rpx;
   display: flex;
   flex-direction: row;
   width: 100vw;
@@ -25,7 +26,7 @@
 
 .section {
   flex: 1;
-  margin-left: 10rpx;  
+  margin-left: 10rpx;
   padding-left: 5rpx;
   border-radius: 5rpx;
   background-color: #F2F4F4;
@@ -33,50 +34,54 @@
 
 .picker {
   line-height: 55rpx;
-  
+
 }
 
-.describe{
+.describe {
   margin: 10rpx;
-  border-top:1rpx solid #D5D8DC;
+  border-top: 1rpx solid #D5D8DC;
   height: 200rpx;
   border-bottom: 1rpx solid #D5D8DC;
 }
-.pictrue{
+
+.pictrue {
   margin-top: 10rpx;
   width: 100%;
   display: flex;
   flex-direction: row;
-  height: 400rpx;  
-  border:1rpx solid #D5D8DC;
+  height: 400rpx;
+  border: 1rpx solid #D5D8DC;
   margin-left: 5rpx;
 }
 
-.pictrue view{
-  border:1rpx solid #D5D8DC;
+.pictrue view {
+  border: 1rpx solid #D5D8DC;
   width: 240rpx;
-  height: 400rpx;  
+  height: 400rpx;
   display: flex;
   align-items: center;
 }
-.pictrue image{
-  width: 240rpx;  
-  height: 400rpx;  
+
+.pictrue image {
+  width: 240rpx;
+  height: 400rpx;
 }
-.myinformation{
-  margin-top: 50rpx;
+
+.myinformation {
+  margin-top: 20rpx;
   width: 100%;
-  height: 200rpx;  
+  height: 150rpx;
   margin-left: 10rpx;
   margin-right: 10rpx;
 }
-.myinformation .pickerInfor{
+
+.myinformation .pickerInfor {
   margin-top: 10rpx;
-  background-color: #F2F4F4;  
-  height: 100rpx;  
+  background-color: #F2F4F4;
+  height: 100rpx;
 }
 
-.button{
+.button {
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -85,18 +90,27 @@
   /* border: 1rpx solid red; */
   width: 100%;
 }
-.button button{
+
+.button button {
   width: 180rpx;
-  border-radius: 30rpx;  
+  border-radius: 30rpx;
   height: 80rpx;
-  line-height: 80rpx;  
+  line-height: 80rpx;
   padding: 0;
 }
 
-.button button:nth-child(1){
+.button button:nth-child(1) {
   background-color: #AED6F1;
 }
 
-.button button:nth-child(2){
+.button button:nth-child(2) {
   background-color: #ABEBC6;
+}
+
+.neighborhood {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-top: 20rpx;
+  border-bottom:1rpx solid #566573 ;
+  background-color: #F2F4F4
 }

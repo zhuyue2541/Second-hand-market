@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showDelete:false,
+    neighborhoodArray: ['雅居乐-湖居笔记', '智慧城'],
+    neighborhoodIndex: 0,
+    showDelete: false,
     productClassify: ["手机", "文具", "其他"],
     currentClass: "选择种类",
     avatar: "/images/tarBar/photo.png",
@@ -15,39 +17,42 @@ Page({
     myInformation: "",
     describe: "",
     productName: ""
-  },  
-  onInputDes(e){
+  },
+  bindPosition: function (e) {
     this.setData({
-      describe:e.detail.value
+      neighborhoodIndex: e.detail.value
     })
   },
-  onInput(e){
+  onInputDes(e) {
+    this.setData({
+      describe: e.detail.value
+    })
+  },
+  onInput(e) {
     console.log(e.detail.value);
     console.log(this.data.productName);
-    const productName=e.detail.value;
+    const productName = e.detail.value;
     this.setData({
       productName
     })
   },
-  deleteOnePicture(e)
-  {
+  deleteOnePicture(e) {
     console.log("delete");
     console.log(e);
-    var index=e.currentTarget.dataset.index;
+    var index = e.currentTarget.dataset.index;
     var photo = [] as string[];
     this.data.photos.forEach((item, i) => {
-      if(i != index)
-      {
+      if (i != index) {
         console.log(item)
         console.log(i)
         photo.push(item)
       }
     })
     this.setData({
-      photos:photo
+      photos: photo
     })
   },
-  deletePicture(e){
+  deletePicture(e) {
     console.log(e);
     let that = this;
     wx.showModal({
@@ -63,7 +68,7 @@ Page({
         }
       }
     })
-    
+
   },
   checkInput() {
     let that = this;
@@ -72,15 +77,13 @@ Page({
         title: "请填写名称",
         icon: "error"
       });
-    } else if(this.data.myInformation === "")
-    {
+    } else if (this.data.myInformation === "") {
       wx.showToast({
         title: "请选联系方式",
         icon: "error"
       });
     }
-    else if(this.data.currentClass === "选择种类")
-    {
+    else if (this.data.currentClass === "选择种类") {
       wx.showToast({
         title: "请选择种类",
         icon: "error"
