@@ -6,6 +6,12 @@
         发布小区:[{{neighborhoodArray[neighborhoodIndex]}}]
       </view>
     </picker>
+    <picker bindchange="bindScell" value="{{buyOrSellIndex}}" range="{{buyOrSells}}">
+      <view class="picker">
+        [{{buyOrSells[buyOrSellIndex]}}]
+      </view>
+    </picker>
+
   </view>
   <!-- 物品名称和类别 -->
   <view class="firstLine">

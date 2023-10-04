@@ -76,6 +76,7 @@
 }
 
 .myinformation .pickerInfor {
+  padding-top: 5rpx;
   margin-top: 10rpx;
   background-color: #F2F4F4;
   height: 100rpx;
@@ -110,7 +111,13 @@
 .neighborhood {
   margin-left: 10rpx;
   margin-right: 10rpx;
-  margin-top: 20rpx;
+  margin-top: 20rpx;  
+  background-color: #F2F4F4;
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-between;
+}
+
+.neighborhood picker{
   border-bottom:1rpx solid #566573 ;
-  background-color: #F2F4F4
 }

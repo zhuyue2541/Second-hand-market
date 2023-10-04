@@ -6,6 +6,8 @@ Page({
    */
   data: {
     neighborhoodArray: ['雅居乐-湖居笔记', '智慧城'],
+    buyOrSells: ["赠送", "出售", "求购"],
+    buyOrSellIndex: 0,
     neighborhoodIndex: 0,
     showDelete: false,
     productClassify: ["手机", "文具", "其他"],
@@ -21,6 +23,11 @@ Page({
   bindPosition: function (e) {
     this.setData({
       neighborhoodIndex: e.detail.value
+    })
+  },
+  bindScell(e) {
+    this.setData({
+      buyOrSellIndex: e.detail.value
     })
   },
   onInputDes(e) {
@@ -123,6 +130,7 @@ Page({
       productName: ""
     })
   },
+
   bindChangeMyInfor: function (e) {
     let index = e.detail.value;
     this.setData({
