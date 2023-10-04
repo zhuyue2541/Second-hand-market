@@ -1,6 +1,33 @@
 /* pages/contact/contact.wxss */
 
 .community{
-  border: 1rpx solid red;
+  /* border: 1rpx solid red; */
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
   height: 300rpx;
+  align-items: stretch;
+  background-color: #F4F6F6;
+}
+.scroll{  
+  height: 55%;
+  border-bottom: 1rpx solid black;
+  border-top: 1rpx solid black;
+}
+.onePosition{
+  margin-right: 10rpx;
+  border-bottom: 1rpx solid #D5D8DC;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.addCommunity{   
+  margin-top: 15rpx; 
+  margin-left: 0;
+  margin-right: 0;
+  line-height: 60rpx;
+  height: 60rpx;  
+  background-color: #D4EFDF;
+  display: flex;  
+  align-items: center;
+  
 }
