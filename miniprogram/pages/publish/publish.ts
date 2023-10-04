@@ -5,21 +5,136 @@ Page({
    * 页面的初始数据
    */
   data: {
-      productClassify:["手机","文具","其他"],
-      currentClass:"选择种类",
-      avatar:"/images/tarBar/photo.png",
-      pictureMode:"aspectFill",
-      photos: [] as string[]
+    showDelete:false,
+    productClassify: ["手机", "文具", "其他"],
+    currentClass: "选择种类",
+    avatar: "/images/tarBar/photo.png",
+    pictureMode: "aspectFit",
+    photos: [] as string[],
+    myInformations: ["手机号:1390392029 微信号：xdf233af", "F区3号楼303 微信昵称：2799832,电话：12344232345"],
+    myInformation: "",
+    describe: "",
+    productName: ""
   },  
-  choosePhoto: function() {
+  onInputDes(e){
+    this.setData({
+      describe:e.detail.value
+    })
+  },
+  onInput(e){
+    console.log(e.detail.value);
+    console.log(this.data.productName);
+    const productName=e.detail.value;
+    this.setData({
+      productName
+    })
+  },
+  deleteOnePicture(e)
+  {
+    console.log("delete");
+    console.log(e);
+    var index=e.currentTarget.dataset.index;
+    var photo = [] as string[];
+    this.data.photos.forEach((item, i) => {
+      if(i != index)
+      {
+        console.log(item)
+        console.log(i)
+        photo.push(item)
+      }
+    })
+    this.setData({
+      photos:photo
+    })
+  },
+  deletePicture(e){
+    console.log(e);
+    let that = this;
+    wx.showModal({
+      title: '删除图片',
+      content: '',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          that.deleteOnePicture(e);
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+          // 在这里执行取消操作
+        }
+      }
+    })
+    
+  },
+  checkInput() {
+    let that = this;
+    if (this.data.productName === "") {
+      wx.showToast({
+        title: "请填写名称",
+        icon: "error"
+      });
+    } else if(this.data.myInformation === "")
+    {
+      wx.showToast({
+        title: "请选联系方式",
+        icon: "error"
+      });
+    }
+    else if(this.data.currentClass === "选择种类")
+    {
+      wx.showToast({
+        title: "请选择种类",
+        icon: "error"
+      });
+    }
+    else {
+      wx.showToast({
+        title: "提交成功",
+        icon: "success"
+      });
+      that.clear();
+    }
+  },
+  submit() {
+    let that = this;
+    wx.showModal({
+      title: '确认发布',
+      content: '',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          that.checkInput();
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+          // 在这里执行取消操作
+        }
+      }
+    })
+  },
+  clear() {
+    console.log(this.data.productName);
+    this.setData({
+      myInformation: "",
+      photos: [],
+      currentClass: "选择种类",
+      describe: "",
+      productName: ""
+    })
+  },
+  bindChangeMyInfor: function (e) {
+    let index = e.detail.value;
+    this.setData({
+      myInformation: this.data.myInformations[index]
+    })
+  },
+  choosePhoto: function () {
     var that = this;
     wx.chooseMedia({
-      count: 3-that.data.photos.length,
+      count: 3 - that.data.photos.length,
       mediaType: ['image'],
       sourceType: ['album', 'camera'],
       maxDuration: 30,
       camera: 'back',
-      success:function(res)  {
+      success: function (res) {
         let photo = that.data.photos;
         res.tempFiles.forEach((item, _) => {
           console.log(item.tempFilePath);
@@ -27,16 +142,16 @@ Page({
         });
         console.log(photo);
         that.setData({
-          photos : photo
+          photos: photo
         })
       }
     })
   },
-  bindPickerChange(e){
+  bindPickerChange(e) {
     console.log(e);
-    let index=e.detail.value;
+    let index = e.detail.value;
     this.setData({
-      currentClass:this.data.productClassify[index]
+      currentClass: this.data.productClassify[index]
     })
   },
   /**

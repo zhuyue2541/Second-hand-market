@@ -2,7 +2,7 @@
 .outContainer {
   display: flex;
   flex-direction: column;
-  border: 1rpx solid black;  
+  /* border: 1rpx solid black;   */
   height: 99vh;
 }
 
@@ -28,7 +28,7 @@
   margin-left: 10rpx;  
   padding-left: 5rpx;
   border-radius: 5rpx;
-  background-color: #D5D8DC;
+  background-color: #F2F4F4;
 }
 
 .picker {
@@ -39,7 +39,7 @@
 .describe{
   margin: 10rpx;
   border-top:1rpx solid #D5D8DC;
-  height: 300rpx;
+  height: 200rpx;
   border-bottom: 1rpx solid #D5D8DC;
 }
 .pictrue{
@@ -47,7 +47,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  height: 500rpx;  
+  height: 400rpx;  
   border:1rpx solid #D5D8DC;
   margin-left: 5rpx;
 }
@@ -55,10 +55,48 @@
 .pictrue view{
   border:1rpx solid #D5D8DC;
   width: 240rpx;
+  height: 400rpx;  
   display: flex;
   align-items: center;
 }
 .pictrue image{
   width: 240rpx;  
-  height: 500rpx;  
+  height: 400rpx;  
+}
+.myinformation{
+  margin-top: 50rpx;
+  width: 100%;
+  height: 200rpx;  
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.myinformation .pickerInfor{
+  margin-top: 10rpx;
+  background-color: #F2F4F4;  
+  height: 100rpx;  
+}
+
+.button{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 20rpx;
+  justify-content: space-around;
+  /* border: 1rpx solid red; */
+  width: 100%;
+}
+.button button{
+  width: 180rpx;
+  border-radius: 30rpx;  
+  height: 80rpx;
+  line-height: 80rpx;  
+  padding: 0;
+}
+
+.button button:nth-child(1){
+  background-color: #AED6F1;
+}
+
+.button button:nth-child(2){
+  background-color: #ABEBC6;
 }
