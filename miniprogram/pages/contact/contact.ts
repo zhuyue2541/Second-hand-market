@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    my:{OpenId:"12kjlfa"},
     isAdministrator: true,
     myCommunity: ["雅居乐1", "智慧城2", "雅居乐3", "智慧城4", "雅居乐5", "智慧城6"],
     applications: [{ OpenId: "219039", nickName: "zzhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "219034", nickName: "zhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "21ae90", nickName: "hh啊", community: "雅居乐", description: "F区10号楼" }],
@@ -169,6 +170,13 @@ Page({
       }
     });
     
+  },
+  userManager(e)  {
+    const userid = e.currentTarget.dataset.userid;
+    console.log(userid);
+    wx.navigateTo({
+      url: '/pages/currentUser/currentUser?userid='+userid
+    })
   },
   /**
    * 生命周期函数--监听页面加载

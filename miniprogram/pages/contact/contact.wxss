@@ -65,6 +65,8 @@ button{
   width: 40rpx;
   margin-right: 5rpx;
   border-right: 1rpx solid #D5D8DC;
+  display: flex;   
+  align-items: center;
 }
 .applicationScroll{
   height: 250rpx;

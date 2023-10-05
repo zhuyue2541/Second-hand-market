@@ -42,7 +42,7 @@
       </view>
     </view>
     <!-- 已有用户管理 跳转页面-->
-    <button bindtap="userManager">现有用户管理</button>
+    <button bindtap="userManager" data-userid="{{my.OpenId}}">现有用户管理</button>
   </view>
 
 

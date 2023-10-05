@@ -4,7 +4,8 @@
     "pages/messages/messages",
     "pages/contact/contact",
     "pages/product/product",
-    "pages/publish/publish"
+    "pages/publish/publish",
+    "pages/currentUser/currentUser"
   ],
   "window": {
     "backgroundTextStyle": "light",
