@@ -23,7 +23,15 @@
   border-top: 1rpx solid black;
 }
 .onePosition{
+  margin-right: 10rpx;  
+  border-bottom: 1rpx solid #D5D8DC;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.onePosition2{
   margin-right: 10rpx;
+  width: 700rpx;
   border-bottom: 1rpx solid #D5D8DC;
   display: flex;
   flex-direction: row;
@@ -76,4 +84,6 @@ button{
   width: 130rpx;
   flex-direction: row;  
   justify-content: space-between;
+  position: relative;
+  right: 5rpx;
 }

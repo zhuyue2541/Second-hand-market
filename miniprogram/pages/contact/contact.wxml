@@ -30,7 +30,7 @@
       <view class="leftName">申请记录</view>
       <view class="applicationList">
         <scroll-view scroll-y class="applicationScroll">
-          <view wx:for="{{applications}}" wx:key="OpenId" class="onePosition">
+          <view wx:for="{{applications}}" wx:key="OpenId" class="onePosition2">
             <view>{{item.nickName}}[申请]{{item.community}}|说明:{{item.description}}</view>
             <view class="approval">
               <icon type="clear" bindtap="refuse" data-index="{{item.OpenId}}" />
