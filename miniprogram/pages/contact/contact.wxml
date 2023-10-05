@@ -45,10 +45,10 @@
     <button bindtap="userManager" data-userid="{{my.OpenId}}">现有用户管理</button>
   </view>
 
-
   <view class="feedBack">
-    <button style="width: 300rpx;" open-type="contact"> 联系客服</button>
-    <button style="width: 300rpx;" open-type="feedback">意见反馈</button>
+    <button style="width: 250rpx;" open-type="contact"> 联系客服</button>
+    <button style="width: 250rpx;" open-type="feedback">意见反馈</button>
+    <button style="width: 250rpx;" wx:if="{{my.canCreateCommunity}}" bindtap="createCommunity">创建小区</button>
   </view>
 
 </view>

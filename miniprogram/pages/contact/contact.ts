@@ -5,11 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    my: { OpenId: "12kjlfa" },
+    my: { OpenId: "12kjlfa", canCreateCommunity: true },
     isAdministrator: true,
     myCommunity: ["雅居乐1", "智慧城2", "雅居乐3", "智慧城4", "雅居乐5", "智慧城6"],
     applications: [{ OpenId: "219039", nickName: "zzhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "219034", nickName: "zhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "21ae90", nickName: "hh啊", community: "雅居乐", description: "F区10号楼" }],
     myContacts: ["电话：12093，微信：239ae3,A区，3单元3号楼", "F楼"]
+  },
+  createCommunity(e){
+    wx.navigateTo({
+      url:"/pages/createCommunity/createCommunity"
+    })
   },
   addCommunity(){
     wx.navigateTo({

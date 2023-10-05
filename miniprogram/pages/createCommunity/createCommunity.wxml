@@ -1,0 +1,11 @@
+<!--pages/createCommunity/createCommunity.wxml-->
+<view class="outer">
+  <view class="oneLine" wx:for="{{message}}" wx:key="*this">
+    <text>{{item.des}}</text>
+    <input placeholder="{{item.holder}}" data-index="{{index}}" bindinput="onInput" />
+  </view>
+</view>
+
+<view class="button">  
+  <button class="submit" bindtap="submit">提交</button>
+</view>

@@ -7,6 +7,7 @@
     "pages/publish/publish",
     "pages/addContact/addContact",
     "pages/currentUser/currentUser",
+    "pages/createCommunity/createCommunity",
     "pages/addCommunity/addCommunity"
   ],
   "window": {
