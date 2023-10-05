@@ -6,7 +6,8 @@
     "pages/product/product",
     "pages/publish/publish",
     "pages/addContact/addContact",
-    "pages/currentUser/currentUser"
+    "pages/currentUser/currentUser",
+    "pages/addCommunity/addCommunity"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -21,6 +21,7 @@ Page({
     if (this.data.contact.length < 3) {
       wx.showToast({
         title: "联系方式过短",
+        mask:true,
         icon: "error"
       });
       return;

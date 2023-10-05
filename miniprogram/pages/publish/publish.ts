@@ -82,23 +82,27 @@ Page({
     if (this.data.productName === "") {
       wx.showToast({
         title: "请填写名称",
+        mask:true,
         icon: "error"
       });
     } else if (this.data.myInformation === "") {
       wx.showToast({
         title: "请选联系方式",
+        mask:true,
         icon: "error"
       });
     }
     else if (this.data.currentClass === "选择种类") {
       wx.showToast({
         title: "请选择种类",
+        mask:true,
         icon: "error"
       });
     }
     else {
       wx.showToast({
         title: "提交成功",
+        mask:true,
         icon: "success"
       });
       that.clear();

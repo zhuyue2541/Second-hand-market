@@ -11,6 +11,11 @@ Page({
     applications: [{ OpenId: "219039", nickName: "zzhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "219034", nickName: "zhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "21ae90", nickName: "hh啊", community: "雅居乐", description: "F区10号楼" }],
     myContacts: ["电话：12093，微信：239ae3,A区，3单元3号楼", "F楼"]
   },
+  addCommunity(){
+    wx.navigateTo({
+      url:"/pages/addCommunity/addCommunity"
+    })
+  },
   confirmAccess(e) {
     let index = e.currentTarget.dataset.index;
     var applications = [];
@@ -87,6 +92,7 @@ Page({
     if (this.data.myContacts.length == 1) {
       wx.showToast({
         title: "至少保留一条联系方式",
+        mask:true,
         icon: "error"
       });
       return;
@@ -137,6 +143,7 @@ Page({
     if (this.data.myCommunity.length == 1) {
       wx.showToast({
         title: "至少在一个小区",
+        mask:true,
         icon: "error"
       });
       return;
