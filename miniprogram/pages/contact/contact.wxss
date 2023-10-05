@@ -1,4 +1,10 @@
 /* pages/contact/contact.wxss */
+.outer{
+  display: flex;
+  /* height: 100vh; */
+  flex-direction: column;
+  justify-content:space-between;
+}
 
 .community{
   /* border: 1rpx solid red; */
@@ -7,6 +13,9 @@
   height: 300rpx;
   align-items: stretch;
   background-color: #F4F6F6;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
 }
 .scroll{  
   height: 55%;
@@ -20,14 +29,49 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.addCommunity{   
+
+.feedBack{
+  background-color: #F4F6F6;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+button{
+  background-color: #C0C0C0;  
+  padding: 0rpx;
   margin-top: 15rpx; 
+  margin-bottom: 15rpx; 
   margin-left: 0;
   margin-right: 0;
   line-height: 60rpx;
-  height: 60rpx;  
-  background-color: #D4EFDF;
-  display: flex;  
-  align-items: center;
-  
+  height: 60rpx;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);  
+}
+
+.isAdministrator{
+  margin-top: 10rpx;
+  background-color: #F4F6F6;
+  height: 340rpx;  
+}
+
+.application{
+  height: 250rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #D5D8DC;
+}
+.leftName{
+  width: 40rpx;
+  margin-right: 5rpx;
+  border-right: 1rpx solid #D5D8DC;
+}
+.applicationScroll{
+  height: 250rpx;
+}
+.approval{
+  display: flex;
+  width: 130rpx;
+  flex-direction: row;  
+  justify-content: space-between;
 }
