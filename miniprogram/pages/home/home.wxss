@@ -53,6 +53,7 @@
 
 .active {
   color: red;
+  border-bottom: 5rpx solid currentColor;
 }
 
 .innerClass view {
@@ -98,11 +99,11 @@
   height: 88vh;  
 }
 .selected {
-  color: red;
+  color: red;  
 }
 /* 左侧分类 */
 .itemClassification view{
-  border-bottom: 1rpx dotted #616A6B;    
+  border-bottom: 1rpx solid #839192;    
   padding-top: 30rpx;
 }
 
