@@ -1,0 +1,17 @@
+/* pages/currentUser/currentUser.wxss */
+
+.table {
+  border: 1px solid #ccc;
+  padding: 10rpx;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+
+.cell {
+  flex: 1;
+  padding: 5rpx;  
+}

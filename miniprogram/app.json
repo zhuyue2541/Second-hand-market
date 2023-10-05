@@ -5,6 +5,7 @@
     "pages/contact/contact",
     "pages/product/product",
     "pages/publish/publish",
+    "pages/addContact/addContact",
     "pages/currentUser/currentUser"
   ],
   "window": {

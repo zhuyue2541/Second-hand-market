@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    my:{OpenId:"12kjlfa"},
+    my: { OpenId: "12kjlfa" },
     isAdministrator: true,
     myCommunity: ["雅居乐1", "智慧城2", "雅居乐3", "智慧城4", "雅居乐5", "智慧城6"],
     applications: [{ OpenId: "219039", nickName: "zzhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "219034", nickName: "zhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "21ae90", nickName: "hh啊", community: "雅居乐", description: "F区10号楼" }],
@@ -28,15 +28,15 @@ Page({
     let that = this;
     let index = e.currentTarget.dataset.index;
     this.data.applications.forEach((item, _) => {
-      if (item.OpenId == index) {        
+      if (item.OpenId == index) {
         wx.showModal({
           title: '确认通过已下申请吗',
-          content: item.nickName +'申请' + item.community,
+          content: item.nickName + '申请' + item.community,
           success: function (res) {
             if (res.confirm) {
               console.log('用户点击确定');
               //发送后端 TODO
-              that.confirmAccess(e);              
+              that.confirmAccess(e);
             } else if (res.cancel) {
               console.log('用户点击取消');
               // 在这里执行取消操作
@@ -64,10 +64,10 @@ Page({
     let that = this;
     let index = e.currentTarget.dataset.index;
     this.data.applications.forEach((item, _) => {
-      if (item.OpenId == index) {        
+      if (item.OpenId == index) {
         wx.showModal({
           title: '确认拒绝以下申请吗',
-          content: item.nickName +'申请' + item.community,
+          content: item.nickName + '申请' + item.community,
           success: function (res) {
             if (res.confirm) {
               console.log('用户点击确定');
@@ -125,8 +125,14 @@ Page({
         return;
       }
     });
-    
   },
+  addContact(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: "/pages/addContact/addContact"
+    })
+  },
+
   deletOneCommunity(e) {
     if (this.data.myCommunity.length == 1) {
       wx.showToast({
@@ -169,13 +175,13 @@ Page({
         return;
       }
     });
-    
+
   },
-  userManager(e)  {
+  userManager(e) {
     const userid = e.currentTarget.dataset.userid;
     console.log(userid);
     wx.navigateTo({
-      url: '/pages/currentUser/currentUser?userid='+userid
+      url: '/pages/currentUser/currentUser?userid=' + userid
     })
   },
   /**

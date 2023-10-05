@@ -1,0 +1,7 @@
+<!--pages/addContact/addContact.wxml-->
+
+<textarea bindinput="onInputDes" placeholder="输入您的联系方式，保证他人可以联系到您即可" value="{{contact}}"/>
+<view class="button">
+  <button class="clear" bindtap="clear">清空</button>
+  <button class="submit" bindtap="submit">提交</button>
+</view>

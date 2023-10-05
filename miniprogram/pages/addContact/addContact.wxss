@@ -1,0 +1,33 @@
+/* pages/addContact/addContact.wxss */
+
+textarea{
+  margin: 20rpx;
+  height: 80vh;
+  border: 1rpx solid #D5D8DC;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 20rpx;
+  justify-content: space-around;
+  /* border: 1rpx solid red; */
+  width: 100%;
+}
+
+.button button {
+  width: 180rpx;
+  border-radius: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0;
+}
+
+.button button:nth-child(1) {
+  background-color: #AED6F1;
+}
+
+.button button:nth-child(2) {
+  background-color: #ABEBC6;
+}
