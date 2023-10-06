@@ -1,4 +1,9 @@
 /* pages/contact/contact.wxss */
+/* page {
+  background-color: #EAECEE;
+} */
+
+
 .outer{
   display: flex;
   /* height: 100vh; */

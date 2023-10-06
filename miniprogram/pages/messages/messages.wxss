@@ -6,14 +6,14 @@
 }
 
 .lock {
-  height: 300rpx;
+  height: 400rpx;
   display: flex;
   flex-direction: row;
   border-bottom: 2rpx solid #839192;
 }
 
 .leftName {
-  height: 300rpx;
+  height: 400rpx;
   width: 40rpx;
   border-right: 1rpx solid #D5D8DC;
   display: flex;
@@ -25,7 +25,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* height: 300rpx;   */
 }
 
 .lockContent view {
@@ -41,11 +40,10 @@
 
 .lockContentRight {
   flex: 1;
-  border-left: 1rpx solid #D5D8DC;
-  height: 300rpx;
+  border-left: 1rpx solid #D5D8DC;  
+  height: 400rpx;
   display: flex;
   flex-direction: column;
-  height: 300rpx;
 }
 
 .myBeLock {
@@ -54,36 +52,43 @@
 
 .myLock,
 .myBeLock {
-  height: 150rpx;
+  height: 200rpx;
 }
 
 .record {
   border-bottom: 1rpx dotted #839192;  
   height: 50rpx;
-  line-height: 60rpx;
+  line-height: 50rpx;
   padding: 5rpx;
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-between;
+}
+
+icon{  
+  width: 60rpx;
+  height: 50rpx;  
 }
 
 .record view {
   flex: 1;  
   align-items: center;
   padding-left: 20rpx;
-  /* border-right: 1rpx dotted #839192;   */
 }
 
 .confirmButton {
-  background-color: #d47777;
-  text-align: center;
+  margin: 0rpx;
+  /* background-color: #d47777; */
+  text-align: center;    
   align-items: center;
   /* 文字居中 */
   line-height: 20px;
+  font-size: 25rpx;
   border-radius: 10rpx;
-  color: #ffffff;
+  /* color: #ffffff; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  padding: 2rpx;
+  padding: 0rpx;
 }
 
 
@@ -118,7 +123,7 @@
 
 .myPublishHistory {
   border-left: 1rpx solid #D5D8DC;
-  height: calc(100vh - 630rpx);
+  height: calc(100vh - 730rpx);
   flex: 1;
   width: 700rpx;
 }
