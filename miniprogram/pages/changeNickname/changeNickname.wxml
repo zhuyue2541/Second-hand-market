@@ -1,0 +1,6 @@
+<!--pages/changeNickname/changeNickname.wxml-->
+<view class="current">{{my.nickName}}</view>
+<input bindinput="input" placeholder="输入您的昵称,不超过20个字符" value="{{input}}" maxlength="20"/>
+<view class="button">  
+  <button class="submit" bindtap="submit">提交</button>
+</view>

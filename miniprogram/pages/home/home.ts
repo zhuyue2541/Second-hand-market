@@ -11,7 +11,7 @@ Page({
 
   // },
   data: {
-    //商品
+    //商品    
     products: [
       { id: 123, publishTime:"2023.10.01", name: "书桌", endTime:"",description: "宽1.6米，高55cm.要在微信小程序中设置图片的 aspectFit 模式，并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中：.并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中", "classify": "其他", buyOrSell: "出售", image: "/images/product/OIP-C.jpg" ,publisher:{wxName:"zhuyue1242",telNo:"123465421fe654",position:"F区10号楼"}},
       { id: 124, publishTime:"2023.10.01",  image: "/images/product/OIP-C.jpg" ,name: "手机1f3a5ef13a5ef1a31", description: "iphone6s,功能正常1234354354a35ef4a35f4a34fa35e4f3a5ef13ase5f4e3aw5f4 fse3f5a1se3f5a1ef3a5ef13se5f1a3ef13f1e3f1", buyOrSell: "出售", classify: "手机" },
@@ -107,7 +107,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    // this.getGridList()
+    // TODO 获取OpenID
+    var app = getApp();
+    if(!app.globalData.my.isUser){
+      wx.redirectTo({
+        url:"/pages/register/register"
+      })
+    }
   },
 
   /**

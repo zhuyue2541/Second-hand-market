@@ -21,7 +21,10 @@
         <icon type="clear" bindtap="deletContact" data-index="{{index}}" />
       </view>
     </scroll-view>
-    <button class="addCommunity" bindtap="addContact">添加联系方式</button>
+    <view style="display: flex; flex-direction: row; justify-content: space-between;">
+      <button style="width: 300rpx;" class="contact" bindtap="addContact">新增联系方式</button>
+      <button style="width: 300rpx;" class="contact" bindtap="changeNickname">修改昵称</button>
+    </view>
   </view>
   <!-- 管理员管理用户：申请审批，提出用户 -->
   <view wx:if="{{isAdministrator}}" class="isAdministrator">
@@ -36,13 +39,12 @@
               <icon type="clear" bindtap="refuse" data-index="{{item.OpenId}}" />
               <icon type="success" bindtap="access" data-index="{{item.OpenId}}" />
             </view>
-
           </view>
         </scroll-view>
       </view>
     </view>
     <!-- 已有用户管理 跳转页面-->
-    <button bindtap="userManager" data-userid="{{my.OpenId}}">现有用户管理</button>
+    <button bindtap="userManager" style="width: 300rpx;" data-userid="{{my.OpenId}}">现有用户管理</button>
   </view>
 
   <view class="feedBack">

@@ -8,6 +8,8 @@
     "pages/addContact/addContact",
     "pages/currentUser/currentUser",
     "pages/createCommunity/createCommunity",
+    "pages/changeNickname/changeNickname",
+    "pages/register/register",
     "pages/addCommunity/addCommunity"
   ],
   "window": {

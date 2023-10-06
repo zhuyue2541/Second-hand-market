@@ -1,4 +1,3 @@
-<!--pages/createCommunity/createCommunity.wxml-->
 <view class="outer">
   <view class="oneLine" wx:for="{{message}}" wx:key="*this">
     <text>{{item.des}}</text>

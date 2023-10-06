@@ -1,0 +1,39 @@
+/* pages/changeNickname/changeNickname.wxss */
+page {
+  background-color: #F8F9F9;
+}
+
+.current {  
+  margin: 20rpx;
+  border-bottom: 1rpx solid black;
+}
+input{
+  background-color: white;
+  margin: 20rpx;
+  border-bottom: 1rpx solid black;
+}
+
+.current::before{
+  content: "现在的昵称：";
+  border-bottom: 1rpx solid #F8F9F9;
+  background-color: #F8F9F9;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 20rpx;
+  justify-content: space-around;
+  /* border: 1rpx solid red; */
+  width: 100%;
+}
+
+.button button {
+  width: 180rpx;
+  border-radius: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0;
+  background-color: #AED6F1;
+}

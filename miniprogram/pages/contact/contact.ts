@@ -11,6 +11,11 @@ Page({
     applications: [{ OpenId: "219039", nickName: "zzhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "219034", nickName: "zhh啊", community: "雅居乐", description: "F区10号楼" }, { OpenId: "21ae90", nickName: "hh啊", community: "雅居乐", description: "F区10号楼" }],
     myContacts: ["电话：12093，微信：239ae3,A区，3单元3号楼", "F楼"]
   },
+  changeNickname(e){
+    wx.navigateTo({
+      url:"/pages/changeNickname/changeNickname"
+    })
+  },
   createCommunity(e){
     wx.navigateTo({
       url:"/pages/createCommunity/createCommunity"

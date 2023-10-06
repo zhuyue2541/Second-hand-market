@@ -2,6 +2,7 @@
 App<IAppOption>({
   globalData: {
     currentProduct: null,
+    my:{OpenId:"1234",isUser:false}
   },
   onLaunch() {
     // 展示本地存储能力
