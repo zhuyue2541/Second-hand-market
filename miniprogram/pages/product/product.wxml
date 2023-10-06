@@ -34,19 +34,18 @@
   <view>
     <!-- <image wx:if="{{currentProduct.image}}" src="{{currentProduct.image}}" class="secondLine" mode="aspectFit"></image> -->
 
-    <view class="pictrue" bindtap="choosePhoto">
+    <view class="pictrue" >
       <view class="pictrue1">
-        <image wx:if="{{currentProduct.photos.length > 0}}" src="{{currentProduct.photos[0]}}" mode="{{pictureMode}}" data-index="{{0}}"></image>
+        <image wx:if="{{currentProduct.photos.length > 0}}" src="{{currentProduct.photos[0]}}" mode="{{pictureMode}}" data-url="{{currentProduct.photos[0]}}" bindtap="previewImage"></image>
         <image wx:else src="{{avatar}}" mode="aspectFit"></image>
       </view>
 
       <view class="pictrue2">
-        <image wx:if="{{currentProduct.photos.length > 1}}" src="{{currentProduct.photos[1]}}" mode="{{pictureMode}}" data-index="{{1}}"></image>
+        <image wx:if="{{currentProduct.photos.length > 1}}" src="{{currentProduct.photos[1]}}" mode="{{pictureMode}}" data-url="{{currentProduct.photos[1]}}" bindtap="previewImage"></image>
         <image wx:else src="{{avatar}}" mode="aspectFit"></image>
-
       </view>
       <view class="pictrue3">
-        <image wx:if="{{currentProduct.photos.length > 2}}" src="{{currentProduct.photos[2]}}" mode="{{pictureMode}}" data-index="{{2}}"></image>
+        <image wx:if="{{currentProduct.photos.length > 2}}" src="{{currentProduct.photos[2]}}" mode="{{pictureMode}}" data-url="{{currentProduct.photos[2]}}" bindtap="previewImage"></image>
         <image wx:else src="{{avatar}}" mode="aspectFit"></image>
       </view>
     </view>

@@ -13,7 +13,13 @@ Page({
     currentProduct: null,
     avatar:"/images/tarBar/empty.png"
   },
-  
+  previewImage(e){
+    console.log(e);
+    wx.previewImage({
+      urls: [e.currentTarget.dataset.url],
+      current: e.currentTarget.dataset.url
+    })
+  },
   lockProduct(){
     wx.showModal({
       title: '确认锁定',
