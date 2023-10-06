@@ -108,8 +108,7 @@
 }
 
 /* 中心商品展示 */
-.productShow{
-  /* border: 2rpx solid blue; */
+.productShow{  
   padding-left: 6rpx;
   flex: 1;  
 }

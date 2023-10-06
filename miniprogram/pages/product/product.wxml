@@ -14,7 +14,7 @@
     </view>
     <view class="publisherDetail">
       <block wx:if="{{isMyProduct}}">
-      {{currentProduct.locker.contact}}
+        {{currentProduct.locker.contact}}
         <!-- <text selectable="true">微信: {{currentProduct.locker.wxName}}</text>
         <text selectable="true">电话: {{currentProduct.locker.telNo}}</text>
         <text selectable="true">地址: {{currentProduct.locker.position}}</text> -->
@@ -27,13 +27,29 @@
       </block>
     </view>
   </view>
-  <view class="publish-time"  style="font-size: 30rpx; margin-left: 10rpx;">
-    <text selectable="true" >发布时间:{{currentProduct.publishTime}}</text>
+  <view class="publish-time" style="font-size: 30rpx; margin-left: 10rpx;">
+    <text selectable="true">发布时间:{{currentProduct.publishTime}}</text>
     <text wx:if="{{currentProduct.endTime !== ''}}" style="padding-left:10rpx;">结束时间:{{currentProduct.endTime}}</text>
   </view>
   <view>
-    <image wx:if="{{currentProduct.image}}" src="{{currentProduct.image}}" class="secondLine" mode="aspectFit"></image>
-    <!-- <image class="secondLine" src="{{currentProduct.image}}" mode="aspectFit"></image> -->
+    <!-- <image wx:if="{{currentProduct.image}}" src="{{currentProduct.image}}" class="secondLine" mode="aspectFit"></image> -->
+
+    <view class="pictrue" bindtap="choosePhoto">
+      <view class="pictrue1">
+        <image wx:if="{{currentProduct.photos.length > 0}}" src="{{currentProduct.photos[0]}}" mode="{{pictureMode}}" data-index="{{0}}"></image>
+        <image wx:else src="{{avatar}}" mode="aspectFit"></image>
+      </view>
+
+      <view class="pictrue2">
+        <image wx:if="{{currentProduct.photos.length > 1}}" src="{{currentProduct.photos[1]}}" mode="{{pictureMode}}" data-index="{{1}}"></image>
+        <image wx:else src="{{avatar}}" mode="aspectFit"></image>
+
+      </view>
+      <view class="pictrue3">
+        <image wx:if="{{currentProduct.photos.length > 2}}" src="{{currentProduct.photos[2]}}" mode="{{pictureMode}}" data-index="{{2}}"></image>
+        <image wx:else src="{{avatar}}" mode="aspectFit"></image>
+      </view>
+    </view>
 
   </view>
 

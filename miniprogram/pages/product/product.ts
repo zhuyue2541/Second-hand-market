@@ -9,7 +9,9 @@ Page({
     // productId: "0",
     showLockButton:true,
     isMyProduct:true,
-    currentProduct: null
+    pictureMode: "aspectFit",
+    currentProduct: null,
+    avatar:"/images/tarBar/empty.png"
   },
   
   lockProduct(){

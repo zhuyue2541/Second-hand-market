@@ -76,3 +76,27 @@ page {
   display: flex;
   justify-content: space-between;
 }
+
+
+.pictrue {
+  margin-top: 10rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 400rpx;
+  border: 1rpx solid #D5D8DC;
+  margin-left: 5rpx;
+}
+
+.pictrue view {
+  border: 1rpx solid #D5D8DC;
+  width: 240rpx;
+  height: 400rpx;
+  display: flex;
+  align-items: center;
+}
+
+.pictrue image {
+  width: 240rpx;
+  height: 400rpx;
+}
