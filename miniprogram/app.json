@@ -1,5 +1,8 @@
 {
-  "pages": [    
+  "pages": [ 
+    "pages/currentShow/currentShow",
+    "pages/locking/locking",
+    "pages/history/history",
     "pages/home/home",
     "pages/messages/messages",
     "pages/contact/contact",

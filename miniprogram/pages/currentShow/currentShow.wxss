@@ -1,0 +1,86 @@
+page {
+  background-color: #E0FFFF;
+}
+
+.selectCommunity {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0rpx;
+  border-bottom: 1rpx solid #AAB7B8;
+}
+
+.secondLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10rpx 0;  
+  border-bottom: 1rpx solid #AAB7B8;
+}
+
+.describe {
+  width: fit-content;
+  margin-left: 100rpx;
+}
+
+.position {
+  margin-right: 100rpx;
+  flex: 1;
+  background-color: white;
+  border-radius: 20rpx;
+}
+
+.innerClass {
+  width: 50%;  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-right: 1rpx solid #AAB7B8;
+}
+
+.active {
+  color: red;
+}
+
+.classify {  
+  margin-right: 20rpx;
+}
+.classify view::before{
+  content: "类别筛选: ";
+  color:black;  
+}
+.classify view{
+  color: red;  
+  background-color: white;
+  border-radius: 20rpx;
+}
+
+.productShow{
+  margin: 10rpx 20rpx;  
+}
+
+.oneProduct{
+  height: 200rpx;
+  border-bottom: 1rpx solid #AAB7B8;
+  display: flex;
+  flex-direction: row;
+}
+.productImage{
+  height: 100%;
+  width: 160rpx;
+  margin-bottom: 2rpx;  
+}
+.content{
+  margin-left: 15rpx;
+  flex:1;  
+  white-space: wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.publicTime{
+  display: flex;  
+  font-size: smaller;  
+}
+.description{
+  font-size: smaller;  
+}
