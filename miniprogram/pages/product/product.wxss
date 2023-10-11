@@ -35,44 +35,63 @@ page {
   color: #1F618D;
   border-bottom: 1rpx dotted #D5D8DC;
 }
-.publisher{
+
+.publisher {
   /* border-bottom: 1rpx solid #D5D8DC; */
   margin-left: 15rpx;
-  font-size: smaller;  
+  font-size: smaller;
 }
-.publisherDetail{
+
+.publisherDetail {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
   border-bottom: 1rpx solid #D5D8DC;
   border-top: 1rpx solid #D5D8DC;
 }
-.publisherDetail text{
+
+.publisherDetail text {
   border-right: 1rpx dotted #D5D8DC;
   margin-right: 10rpx;
-  margin-left:5rpx;
+  margin-left: 5rpx;
 }
 
-.secondLine {  
-  /* border: 4rpx solid black; */  
-  width: 80%;  
+.secondLine {
+  /* border: 4rpx solid black; */
+  width: 80%;
   margin: 0 auto;
-  display: flex; 
-  justify-content: center; /** flex 属性， 水平居中**/  
+  display: flex;
+  justify-content: center;
+  /** flex 属性， 水平居中**/
 }
+
 .thirdLine {
   /* margin: 10rpx;   */
+  margin: 20rpx;
   width: auto;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  box-sizing:border-box;
+  box-sizing: border-box;
+  border: 1rpx solid #D5D8DC;
+  height: 400rpx;
 }
+.fourthLind{
+  margin: 0rpx 20rpx;
+  font-size: smaller;
+  color:#E67E22
+}
+.locker{
+  margin: 20rpx;
+  width: auto;
+  box-sizing: border-box;
+  border: 1rpx solid #D5D8DC;
+  background-color: white;
+}
+
 .publish-time {
   border-bottom: 1rpx solid #D5D8DC;
   display: flex;
   justify-content: flex-end;
 }
 
-.publish-time{
+.publish-time {
   display: flex;
   justify-content: space-between;
 }

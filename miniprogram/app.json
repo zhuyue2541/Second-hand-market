@@ -1,12 +1,14 @@
 {
   "pages": [ 
+    
     "pages/currentShow/currentShow",
     "pages/locking/locking",
-    "pages/history/history",
+    "pages/product/product",
+
     "pages/home/home",
     "pages/messages/messages",
     "pages/contact/contact",
-    "pages/product/product",
+    
     "pages/publish/publish",
     "pages/addContact/addContact",
     "pages/currentUser/currentUser",
