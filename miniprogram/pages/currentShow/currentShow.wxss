@@ -9,29 +9,42 @@ page {
   margin: 20rpx 0rpx;
   /* border-bottom: 1rpx solid #AAB7B8; */
 }
-.searchBox{
+
+.searchBox {
   border: 1rpx solid red;
   display: flex;
   flex-direction: row;
   border-radius: 20rpx;
 }
+
 .secondLine {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10rpx 0;  
+  margin: 10rpx 0;
   border-bottom: 1rpx solid #AAB7B8;
 }
 
 .describe {
-  width: fit-content;
+  height: 50rpx;
+  width: 100rpx;
+  display: flex;
+  align-items: center;
   /* margin-left: 100rpx; */
 }
 
-.position {  
+.position {
   flex: 1;
   background-color: white;
   border-radius: 20rpx;
+  color: red;
+  display: flex;
+  align-items: center;  
+}
+.picker{
+  height: 50rpx;
+  overflow: hidden;
+  width: 200rpx;
 }
 /* 
 .searchBox {
@@ -54,7 +67,7 @@ page {
 } */
 
 .innerClass {
-  width: 50%;  
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -65,46 +78,51 @@ page {
   color: red;
 }
 
-.classify {  
+.classify {
   margin-right: 20rpx;
 }
-.classify view::before{
+
+.classify view::before {
   content: "类别筛选: ";
-  color:black;  
+  color: black;
 }
-.classify view{
-  color: red;  
+
+.classify view {
+  color: red;
   background-color: white;
   border-radius: 20rpx;
 }
 
-.productShow{
-  margin: 10rpx 20rpx;  
+.productShow {
+  margin: 10rpx 20rpx;
 }
 
-.oneProduct{
+.oneProduct {
   height: 200rpx;
   border-bottom: 1rpx solid #AAB7B8;
   display: flex;
   flex-direction: row;
 }
-.productImage{
+
+.productImage {
   height: 100%;
   width: 160rpx;
-  margin-bottom: 2rpx;  
+  margin-bottom: 2rpx;
 }
-.content{
+
+.content {
   margin-left: 15rpx;
-  flex:1;  
+  flex: 1;
   white-space: wrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.publicTime{
-  display: flex;  
-  font-size: smaller;  
+.publicTime {
+  display: flex;
+  font-size: smaller;
 }
-.description{
-  font-size: smaller;  
+
+.description {
+  font-size: smaller;
 }

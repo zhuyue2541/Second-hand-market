@@ -1,2 +1,41 @@
-<!--pages/locking/locking.wxml-->
-<text>pages/locking/locking.wxml</text>
+<!--pages/currentShow/currentShow.wxml-->
+<view class="selectCommunity">
+  <view class="describe">小区：</view>
+  <picker class="position" bindchange="selectCommunity" value="{{currentCommunity}}" range="{{communities}}">
+    <view class="picker">
+      {{currentCommunity}}
+    </view>
+  </picker>
+  <view class="searchBox">
+    <input class="searchInput" placeholder="请输入关键词" maxlength="140" bindinput="searchinput" />
+    <icon type="search" size="25" color="red" style="width: 70rpx;" bindtap="onSearch"></icon>
+  </view>
+</view>
+
+<view class="secondLine">
+  <view class="innerClass">
+    <view class="{{currentTab === '0' ? 'active' : ''}}" bindtap="switchTab" data-index="0">所有</view>
+    <view class="{{currentTab === '1' ? 'active' : ''}}" bindtap="switchTab" data-index="1">赠送</view>
+    <view class="{{currentTab === '2' ? 'active' : ''}}" bindtap="switchTab" data-index="2">出售</view>
+    <view class="{{currentTab === '3' ? 'active' : ''}}" bindtap="switchTab" data-index="3">求购</view>
+  </view>
+
+  <picker class="classify" bindchange="selectClassify" value="{{currentClassify}}" range="{{calssifies}}">
+    <view>{{currentClassify}}</view>
+  </picker>
+</view>
+<!-- 商品展示区 -->
+<view class="productShow" wx:for="{{products}}" wx:key="id">
+  <view class="oneProduct" bindtap="showDetail" data-nid="{{item.id}}">
+    <image class="productImage" wx:if="{{item.photos.length > 0}}" src="{{item.photos[0]}}" mode="aspectFill" />
+    <image wx:else class="productImage" src="{{emptyPhoto}}" mode="aspectFill" />
+    <view class="content">
+      <view>{{item.buyOrSell}}:{{item.name}} </view>
+      <view class="publicTime">发布时间: {{item.publishTime}}</view>
+      <view class="description">
+        <text selectable="true">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

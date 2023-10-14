@@ -1,6 +1,6 @@
 {
-  "pages": [ 
-    
+  "pages": [
+
     "pages/currentShow/currentShow",
     "pages/locking/locking",
     "pages/product/product",
@@ -8,44 +8,36 @@
     "pages/home/home",
     "pages/messages/messages",
     "pages/contact/contact",
-    
-    "pages/publish/publish",
-    "pages/addContact/addContact",
-    "pages/currentUser/currentUser",
-    "pages/createCommunity/createCommunity",
-    "pages/changeNickname/changeNickname",
-    "pages/register/register",
-    "pages/addCommunity/addCommunity"
+    "pages/publish/publish"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#E0FFFF",
     "navigationBarTitleText": "邻里闲宝",
-    "navigationBarTextStyle": "black"    
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "text":"首页",
+    "list": [{
+        "pagePath": "pages/currentShow/currentShow",
+        "text": "首页",
         "iconPath": "/images/tarBar/home-off.png",
         "selectedIconPath": "/images/tarBar/home-on.png"
-      }, 
+      },
       {
         "pagePath": "pages/publish/publish",
-        "text":"发布",
+        "text": "发布",
         "iconPath": "/images/tarBar/publish-off.png",
         "selectedIconPath": "/images/tarBar/publish-on.png"
-      }, 
+      },
       {
-        "pagePath": "pages/messages/messages",
-        "text":"我的交易",
-        "iconPath": "/images/tarBar/message-off.png",
-        "selectedIconPath": "/images/tarBar/message-on.png"
+        "pagePath": "pages/locking/locking",
+        "text": "锁定中",
+        "iconPath": "/images/tarBar/lock-off.png",
+        "selectedIconPath": "/images/tarBar/lock-on.png"
       },
       {
         "pagePath": "pages/contact/contact",
-        "text":"个人中心",
+        "text": "关于",
         "iconPath": "/images/tarBar/my-off.png",
         "selectedIconPath": "/images/tarBar/my-on.png"
       }

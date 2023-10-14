@@ -50,7 +50,8 @@
     <text selectable="true" style="margin-right: 20rpx; margin-left:20rpx; "> {{currentProduct.description}}</text>
   </scroll-view>
   <view class="fourthLind">
-  <view>如果要锁定该物品，输入您的联系方式，锁定后请立即联系发布者，锁定后该物品进入锁定页面，一周后记录清除。</view>
+  <view wx:if="{{showLockButton}}">如果需要该物品，输入您的联系方式然后点击右上角锁定按钮，锁定后自行联系发布者，锁定后该物品进入锁定页面，一周后记录清除。</view>
+  <view wx:else>锁定人信息</view>
   </view>
   <textarea disabled="{{lockerInputDisable}}" value="{{locker}}" placeholder="您的联系方式" class="locker" bindinput="lockinput"/>
 </view>

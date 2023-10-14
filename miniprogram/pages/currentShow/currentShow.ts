@@ -22,7 +22,7 @@ Page({
     ],
     currentTab:"0",
     currentCommunity:"雅居乐湖居笔记",
-    communities:["雅居乐湖居笔记","智慧城","万景荔枝湾"],
+    communities:["雅居乐湖居笔记","ae智慧城智慧城w智慧城fewaf","万景荔枝湾"],
     currentClassify:"全部",
     calssifies:["全部","文具","电器"]
   },
