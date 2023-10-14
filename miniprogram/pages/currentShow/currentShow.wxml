@@ -1,12 +1,17 @@
 <!--pages/currentShow/currentShow.wxml-->
 <view class="selectCommunity">
-  <view class="describe">选择小区：</view>
+  <view class="describe">小区：</view>
   <picker class="position" bindchange="selectCommunity" value="{{currentCommunity}}" range="{{communities}}">
     <view class="picker">
       {{currentCommunity}}
     </view>
   </picker>
+  <view class="searchBox">
+    <input class="searchInput" placeholder="请输入关键词" maxlength="140" bindinput="searchinput" />
+    <icon type="search" size="25" color="red" style="width: 70rpx;" bindtap="onSearch"></icon>
+  </view>
 </view>
+
 <view class="secondLine">
   <view class="innerClass">
     <view class="{{currentTab === '0' ? 'active' : ''}}" bindtap="switchTab" data-index="0">所有</view>

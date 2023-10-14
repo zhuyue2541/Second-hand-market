@@ -86,9 +86,8 @@ page {
 }
 
 .publish-time {
-  border-bottom: 1rpx solid #D5D8DC;
-  display: flex;
-  justify-content: flex-end;
+  border-bottom: 1rpx solid #D5D8DC;  
+  align-items: flex-end;
 }
 
 .publish-time {

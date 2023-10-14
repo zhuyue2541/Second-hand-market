@@ -22,7 +22,7 @@
     </view>
   </view>
   <view class="publish-time" style="font-size: 30rpx; margin-left: 10rpx;">
-    <text selectable="true">发布时间:{{currentProduct.publishTime}}</text>
+    <text selectable="true" style="font-size: smaller;">发布时间: {{currentProduct.publishTime}}</text>
     <text wx:if="{{currentProduct.endTime !== ''}}" style="padding-left:10rpx;">结束时间:{{currentProduct.endTime}}</text>
   </view>
   <view>

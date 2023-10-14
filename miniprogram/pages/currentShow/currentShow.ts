@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    searchinput:"",
     emptyPhoto:"/images/tarBar/empty.png",
     products: [
       { id: 123, publishTime:"2023.10.01", name: "书桌", endTime:"",description: "宽1.6米，高55cm.要在微信小程序中设置图片的 aspectFit 模式，并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中：.并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中", "classify": "其他", buyOrSell: "出售", photos:["/images/product/OIP-C.jpg","/images/product/OIP-C.jpg"],image: "/images/product/OIP-C.jpg" ,publisher:{wxName:"zhuyue1242",contact:"电话。。。微信：l2fa43e",telNo:"123465421fe654",position:"F区10号楼"}},
@@ -24,6 +25,14 @@ Page({
     communities:["雅居乐湖居笔记","智慧城","万景荔枝湾"],
     currentClassify:"全部",
     calssifies:["全部","文具","电器"]
+  },
+  searchinput(e){    
+    this.setData({
+      searchinput:e.detail.value
+    })
+  },
+  onSearch(e){
+    console.log(e); //TODO
   },
   selectCommunity(e){
     console.log(e);
