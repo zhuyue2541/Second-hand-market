@@ -14,8 +14,7 @@ Page({
     currentClass: "选择种类",
     avatar: "/images/tarBar/photo.png",
     pictureMode: "aspectFit",
-    photos: [] as string[],
-    myInformations: ["手机号:1390392029 微信号：xdf233af", "F区3号楼303 微信昵称：2799832,电话：12344232345"],
+    photos: [] as string[],    
     myInformation: "",
     describe: "",
     productName: ""
@@ -135,10 +134,9 @@ Page({
     })
   },
 
-  bindChangeMyInfor: function (e) {
-    let index = e.detail.value;
+  mycontact(e){
     this.setData({
-      myInformation: this.data.myInformations[index]
+      myInformation:e.detail.value
     })
   },
   choosePhoto: function () {

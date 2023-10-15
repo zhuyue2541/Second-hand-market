@@ -1,4 +1,7 @@
 /* pages/publish/publish.wxss */
+page {
+  background-color: #E0FFFF;
+}
 .outContainer {
   display: flex;
   flex-direction: column;
@@ -22,6 +25,7 @@
   border-right: 1rpx solid #D5D8DC;
   width: 500rpx;
   line-height: 55rpx;
+  background-color: white;
 }
 
 .section {
@@ -42,6 +46,7 @@
   border-top: 1rpx solid #D5D8DC;
   height: 200rpx;
   border-bottom: 1rpx solid #D5D8DC;
+  background-color: white;
 }
 
 .pictrue {
@@ -78,8 +83,9 @@
 .myinformation .pickerInfor {
   padding-top: 5rpx;
   margin-top: 10rpx;
-  background-color: #F2F4F4;
+  background-color: white;
   height: 100rpx;
+  width: auto;
 }
 
 .button {

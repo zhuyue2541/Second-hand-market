@@ -49,12 +49,9 @@
 
   <!-- 发布人信息 -->
   <view class="myinformation">
-    <view>我的联系方式:</view>
-    <picker mode="selector" bindchange="bindChangeMyInfor" value="{{index}}" range="{{myInformations}}">
-      <view class="pickerInfor">
-        {{myInformation}}
-      </view>
-    </picker>
+    <view>我的联系方式:</view>    
+      <textarea class="pickerInfor" bindinput="mycontact">        
+      </textarea>    
   </view>
   
   <!-- 提交和清空按钮 -->
