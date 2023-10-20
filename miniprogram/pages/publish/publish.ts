@@ -14,7 +14,7 @@ Page({
     currentClass: "选择种类",
     avatar: "/images/tarBar/photo.png",
     pictureMode: "aspectFit",
-    photos: [] as string[],    
+    photos: [] as string[],
     myInformation: "",
     describe: "",
     productName: ""
@@ -76,44 +76,49 @@ Page({
     })
 
   },
-  submit2server(){
+  submit2server() {
     let that = this;
-    wx.uploadFile({
-      url: 'http://192.168.0.102:6874/weixin/neibor/publish',
-      filePath: that.data.photos[0],
-      name: 'image',
-      formData: {
-        'text': 'Hello World'
-      },
-      success: function(res) {
-        var data = res.data;
-        // 处理上传成功后的逻辑
-        console.log(data)
-      },
-      fail: function(res) {
-        // 处理上传失败后的逻辑
-      }
-    })
+    let serverPhoto = [] as string[];
+    for (var i = 0; i < this.data.photos.length; i++) {
+      wx.uploadFile({
+        url: 'http://192.168.0.102:6874/weixin/neibor/publish',
+        filePath: that.data.photos[i],
+        name: 'image',
+        formData: {
+          'text': 'Hello World'
+        },
+        success: function (res) {
+          var data = res.data;
+          console.log(res)
+          serverPhoto.push(data)
+          // 处理上传成功后的逻辑
+          // console.log(serverPhoto)
+        },
+        fail: function (res) {
+          // 处理上传失败后的逻辑
+        }
+      })
+    }    
   },
   checkInput() {
     let that = this;
     if (this.data.productName === "") {
       wx.showToast({
         title: "请填写名称",
-        mask:true,
+        mask: true,
         icon: "error"
       });
     } else if (this.data.myInformation === "") {
       wx.showToast({
         title: "请选联系方式",
-        mask:true,
+        mask: true,
         icon: "error"
       });
     }
     else if (this.data.currentClass === "选择种类") {
       wx.showToast({
         title: "请选择种类",
-        mask:true,
+        mask: true,
         icon: "error"
       });
     }
@@ -121,13 +126,13 @@ Page({
       that.submit2server();
       wx.showToast({
         title: "提交成功",
-        mask:true,
+        mask: true,
         icon: "success"
       });
       that.clear();
     }
   },
-  
+
   submit() {
     let that = this;
     wx.showModal({
@@ -155,9 +160,9 @@ Page({
     })
   },
 
-  mycontact(e){
+  mycontact(e) {
     this.setData({
-      myInformation:e.detail.value
+      myInformation: e.detail.value
     })
   },
   choosePhoto: function () {
