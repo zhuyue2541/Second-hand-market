@@ -76,6 +76,25 @@ Page({
     })
 
   },
+  submit2server(){
+    let that = this;
+    wx.uploadFile({
+      url: 'http://192.168.0.102:6874/weixin/neibor/publish',
+      filePath: that.data.photos[0],
+      name: 'image',
+      formData: {
+        'text': 'Hello World'
+      },
+      success: function(res) {
+        var data = res.data;
+        // 处理上传成功后的逻辑
+        console.log(data)
+      },
+      fail: function(res) {
+        // 处理上传失败后的逻辑
+      }
+    })
+  },
   checkInput() {
     let that = this;
     if (this.data.productName === "") {
@@ -99,6 +118,7 @@ Page({
       });
     }
     else {
+      that.submit2server();
       wx.showToast({
         title: "提交成功",
         mask:true,
@@ -107,6 +127,7 @@ Page({
       that.clear();
     }
   },
+  
   submit() {
     let that = this;
     wx.showModal({

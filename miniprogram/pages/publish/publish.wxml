@@ -15,7 +15,7 @@
   </view>
   <!-- 物品名称和类别 -->
   <view class="firstLine">
-    <input class="searchInput" placeholder="请输入物品名称" maxlength="140" bindinput="onInput" value="{{productName}}" />
+    <input class="searchInput" placeholder="请输入物品名称" maxlength="100" bindinput="onInput" value="{{productName}}" />
     <view class="section" style="margin-right: 10rpx;">
       <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{productClassify}}">
         <view class="picker">
@@ -26,7 +26,7 @@
   </view>
   <!-- 物品描述 -->
   <view class="describe">
-    <textarea bindinput="onInputDes" placeholder="物品详细描述" value="{{ describe }}"></textarea>
+    <textarea bindinput="onInputDes" maxlength="5000" placeholder="物品详细描述" value="{{ describe }}"></textarea>
 
   </view>
   <!-- 上传图片 -->
@@ -50,7 +50,7 @@
   <!-- 发布人信息 -->
   <view class="myinformation">
     <view>我的联系方式:</view>    
-      <textarea class="pickerInfor" bindinput="mycontact">        
+      <textarea class="pickerInfor" bindinput="mycontact" maxlength="1000">        
       </textarea>    
   </view>
   
