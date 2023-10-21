@@ -50,7 +50,7 @@
   <!-- 发布人信息 -->
   <view class="myinformation">
     <view>我的联系方式:</view>    
-      <textarea class="pickerInfor" bindinput="mycontact" maxlength="1000">        
+      <textarea class="pickerInfor" value="{{myInformation}}" bindinput="mycontact" maxlength="1000">        
       </textarea>    
   </view>
   

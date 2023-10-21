@@ -35,8 +35,6 @@ Page({
     })
   },
   onInput(e) {
-    console.log(e.detail.value);
-    console.log(this.data.productName);
     const productName = e.detail.value;
     this.setData({
       productName
@@ -76,29 +74,59 @@ Page({
     })
 
   },
+  showuploadfail() {
+    wx.showToast({
+      title: "上传失败请重试",
+      icon: "error",
+      duration: 2000
+    })
+  },
+  showuploadsucc() {
+    wx.showToast({
+      title: "上传成功",
+      icon: "success",
+      duration: 2000
+    })
+    this.clear();
+  },
   submit2server() {
     let that = this;
     let serverPhoto = [] as string[];
+    let res = true;
     for (var i = 0; i < this.data.photos.length; i++) {
+      if (!res) {
+        return;
+      }
       wx.uploadFile({
         url: 'http://192.168.0.102:6874/weixin/neibor/publish',
         filePath: that.data.photos[i],
         name: 'image',
         formData: {
-          'text': 'Hello World'
+          'number': that.data.photos.length,
+          'current': i,
+          'beforePicture': serverPhoto,
+          'productMsg': {
+            'productName': that.data.productName,
+            'myInformation': that.data.myInformation,
+            'currentClass': that.data.currentClass,
+            'describe': that.data.describe,
+            'neighborhood': that.data.neighborhoodArray[that.data.neighborhoodIndex],
+            'buyOrSells': that.data.buyOrSells[that.data.buyOrSellIndex]
+          }
         },
         success: function (res) {
-          var data = res.data;
-          console.log(res)
-          serverPhoto.push(data)
-          // 处理上传成功后的逻辑
-          // console.log(serverPhoto)
+          var data = res.data.split(",");          
+          serverPhoto.push(data[0])          
+          if (parseInt(data[1]) + 1 == that.data.photos.length) {
+            that.showuploadsucc();
+          }
         },
         fail: function (res) {
           // 处理上传失败后的逻辑
+          that.showuploadfail();
         }
       })
-    }    
+    }
   },
   checkInput() {
     let that = this;
@@ -124,12 +152,6 @@ Page({
     }
     else {
       that.submit2server();
-      wx.showToast({
-        title: "提交成功",
-        mask: true,
-        icon: "success"
-      });
-      that.clear();
     }
   },
 
