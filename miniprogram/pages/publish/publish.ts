@@ -87,38 +87,55 @@ Page({
       icon: "success",
       duration: 2000
     })
-    this.clear();
+    // this.clear();  最后取消TODO
   },
-  submit2server() {
+  submitMsg2server(pictures: string[]) {
+    var that = this;
+    var productMsg = {
+      'pictrues': pictures,
+      'productName': that.data.productName,
+      'myInformation': that.data.myInformation,
+      'currentClass': that.data.currentClass,
+      'describe': that.data.describe,
+      'neighborhood': that.data.neighborhoodArray[that.data.neighborhoodIndex],
+      'buyOrSells': that.data.buyOrSells[that.data.buyOrSellIndex]
+    };
+    wx.request({
+      url: 'http://192.168.0.102:6874/weixin/neibor/publish/msg', // 替换为你的服务器端 URL
+      method: 'POST',
+      data: productMsg,
+      header: {
+        'content-type': 'application/json' // 设置请求头的 Content-Type
+      },
+      success: function (res) {
+        // 请求成功的回调函数
+        console.log(res.data); // 输出服务器返回的数据
+        that.showuploadsucc();
+      },
+      fail: function (error) {
+        // 请求失败的回调函数
+        console.log(error);
+      }
+    });
+  },
+  submitPicture2server() {
     let that = this;
     let serverPhoto = [] as string[];
-    let res = true;
+
     for (var i = 0; i < this.data.photos.length; i++) {
-      if (!res) {
-        return;
-      }
+
       wx.uploadFile({
-        url: 'http://192.168.0.102:6874/weixin/neibor/publish',
+        url: 'http://192.168.0.102:6874/weixin/neibor/publish/picture',
         filePath: that.data.photos[i],
         name: 'image',
         formData: {
-          'number': that.data.photos.length,
-          'current': i,
-          'beforePicture': serverPhoto,
-          'productMsg': {
-            'productName': that.data.productName,
-            'myInformation': that.data.myInformation,
-            'currentClass': that.data.currentClass,
-            'describe': that.data.describe,
-            'neighborhood': that.data.neighborhoodArray[that.data.neighborhoodIndex],
-            'buyOrSells': that.data.buyOrSells[that.data.buyOrSellIndex]
-          }
+          'current': i
         },
         success: function (res) {
-          var data = res.data.split(",");          
-          serverPhoto.push(data[0])          
+          var data = res.data.split(",");
+          serverPhoto.push(data[0])
           if (parseInt(data[1]) + 1 == that.data.photos.length) {
-            that.showuploadsucc();
+            that.submitMsg2server(serverPhoto);
           }
         },
         fail: function (res) {
@@ -151,7 +168,7 @@ Page({
       });
     }
     else {
-      that.submit2server();
+      that.submitPicture2server();
     }
   },
 
