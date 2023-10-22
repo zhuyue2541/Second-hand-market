@@ -109,12 +109,19 @@ Page({
       },
       success: function (res) {
         // 请求成功的回调函数
+        console.log("publish success")
         console.log(res.data); // 输出服务器返回的数据
-        that.showuploadsucc();
+        if(res.statusCode != 200){
+          that.showuploadfail();
+        }else{
+          that.showuploadsucc();
+        }
       },
       fail: function (error) {
         // 请求失败的回调函数
+        console.log("publish fail")
         console.log(error);
+        that.showuploadfail();
       }
     });
   },
@@ -132,6 +139,10 @@ Page({
           'current': i
         },
         success: function (res) {
+          if(res.statusCode != 200){
+            that.showuploadfail();
+            return
+          }
           var data = res.data.split(",");
           serverPhoto.push(data[0])
           if (parseInt(data[1]) + 1 == that.data.photos.length) {
