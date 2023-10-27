@@ -72,31 +72,35 @@ Page({
       url: "/pages/product/product?isShowLock=true&isMyProduct=false"
     })
   },
-
+  setClassify(){
+    var app = getApp();
+    let calssifies = ["全部"]
+    console.log(app.globalData.productClassify)
+    let calssify= calssifies.concat(app.globalData.productClassify);    
+    this.setData({
+      calssifies: calssify
+    })
+    console.log(calssify)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    var app = getApp();
-    let calssifies = ["全部"]
-    calssifies= calssifies.concat(app.globalData.productClassify);    
-    this.setData({
-      calssifies: calssifies
-    })
+    this.setClassify()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    this.setClassify()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.setClassify()
   },
 
   /**
