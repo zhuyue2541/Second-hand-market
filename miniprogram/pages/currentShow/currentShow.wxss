@@ -43,8 +43,10 @@ page {
 }
 .picker{
   height: 50rpx;
+  text-align: center;
+  line-height:50rpx;
   overflow: hidden;
-  width: 200rpx;
+  /* width: 200rpx; */
 }
 /* 
 .searchBox {

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    neighborhoodArray: ['雅居乐-湖居笔记', '智慧城'],
+    communities: ['雅居乐-湖居笔记', '智慧城'],
     buyOrSells: ["赠送", "出售", "求购"],
     buyOrSellIndex: 0,
     neighborhoodIndex: 0,
@@ -97,7 +97,7 @@ Page({
       'myInformation': that.data.myInformation,
       'currentClass': that.data.currentClass,
       'describe': that.data.describe,
-      'neighborhood': that.data.neighborhoodArray[that.data.neighborhoodIndex],
+      'neighborhood': that.data.communities[that.data.neighborhoodIndex],
       'buyOrSells': that.data.buyOrSells[that.data.buyOrSellIndex]
     };
     wx.request({
@@ -111,9 +111,9 @@ Page({
         // 请求成功的回调函数
         console.log("publish success")
         console.log(res.data); // 输出服务器返回的数据
-        if(res.statusCode != 200){
+        if (res.statusCode != 200) {
           that.showuploadfail();
-        }else{
+        } else {
           that.showuploadsucc();
         }
       },
@@ -139,7 +139,7 @@ Page({
           'current': i
         },
         success: function (res) {
-          if(res.statusCode != 200){
+          if (res.statusCode != 200) {
             that.showuploadfail();
             return
           }
@@ -243,28 +243,32 @@ Page({
       currentClass: this.data.productClassify[index]
     })
   },
+  preGet(){
+    var app = getApp();
+    this.setData({
+      productClassify: app.globalData.productClassify,
+      communities: app.globalData.communities
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    var app = getApp()    
-    this.setData({
-      productClassify:app.globalData.productClassify
-    })
+    this.preGet();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    this.preGet();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.preGet();
   },
 
   /**

@@ -1,9 +1,9 @@
 <!--pages/publish/publish.wxml-->
 <view class="outContainer">
   <view class="neighborhood">
-    <picker bindchange="bindPosition" value="{{neighborhoodIndex}}" range="{{neighborhoodArray}}">
+    <picker bindchange="bindPosition" value="{{neighborhoodIndex}}" range="{{communities}}">
       <view class="picker">
-        发布小区:[{{neighborhoodArray[neighborhoodIndex]}}]
+        发布小区:[{{communities[neighborhoodIndex]}}]
       </view>
     </picker>
     <picker bindchange="bindScell" value="{{buyOrSellIndex}}" range="{{buyOrSells}}">
