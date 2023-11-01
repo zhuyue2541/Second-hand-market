@@ -20,7 +20,7 @@ Page({
       { id: 133, name: "手机", description: "iphone6s,功能正常", buyOrSell: "求购", classify: "手机" },
       { id: 154, name: "手机", description: "iphone6s,功能正常", buyOrSell: "求购", classify: "手机" }, { id: 156, name: "手机", description: "iphone6s,功能正常", buyOrSell: "卖", classify: "手机" }, { id: 157, name: "手机", description: "iphone6s,功能正常", buyOrSell: "卖", classify: "手机" }, { id: 158, name: "手机", description: "iphone6s,功能正常", buyOrSell: "卖", classify: "手机" }
     ],
-    currentTab: 0,
+    currentTab: '0',
     buyOrSellList: ["所有", "赠送", "出售", "求购"],
     currentCommunity: "雅居乐湖居笔记",
     communities: ["雅居乐湖居笔记", "智慧城", "万景荔枝湾"],
