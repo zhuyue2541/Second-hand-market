@@ -33,7 +33,7 @@
       <view>{{item.buyOrSell}}:{{item.name}} </view>
       <view class="publicTime">发布时间: {{item.publishTime}}</view>
       <view class="description">
-        <text selectable="true">{{item.description}}</text>
+        <text user-select="true">{{item.description}}</text>
       </view>
     </view>
   </view>

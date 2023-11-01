@@ -2,7 +2,7 @@
   功能介绍
 </view>
 <view class="descript">
-<text selectable="true">{{introduce}}</text>
+<text user-select="true">{{introduce}}</text>
 </view>
 <view class="feedBack">
   <button style="width: 250rpx;" open-type="contact"> 联系客服</button>

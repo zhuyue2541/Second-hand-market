@@ -25,8 +25,8 @@ App<IAppOption>({
   getCommunity(){
     var that = this;
     wx.request({
-      url: 'http://192.168.0.102:6874/weixin/neibor/community', // 替换为你的服务端URL  
-      method: 'GET', // 根据需要选择请求方法，这里使用GET请求  
+      url: 'http://192.168.0.102:6874/weixin/neibor/community', 
+      method: 'GET', 
       success: function (res) {
         // 请求成功后的回调函数  
         console.log(res.data) // 打印获取到的物品种类数据 

@@ -20,11 +20,13 @@ Page({
       { id: 133, name: "手机", description: "iphone6s,功能正常", buyOrSell: "求购", classify: "手机" },
       { id: 154, name: "手机", description: "iphone6s,功能正常", buyOrSell: "求购", classify: "手机" }, { id: 156, name: "手机", description: "iphone6s,功能正常", buyOrSell: "卖", classify: "手机" }, { id: 157, name: "手机", description: "iphone6s,功能正常", buyOrSell: "卖", classify: "手机" }, { id: 158, name: "手机", description: "iphone6s,功能正常", buyOrSell: "卖", classify: "手机" }
     ],
-    currentTab: "0",
+    currentTab: 0,
+    buyOrSellList: ["所有", "赠送", "出售", "求购"],
     currentCommunity: "雅居乐湖居笔记",
-    communities: ["雅居乐湖居笔记", "ae智慧城智慧城w智慧城fewaf", "万景荔枝湾"],
+    communities: ["雅居乐湖居笔记", "智慧城", "万景荔枝湾"],
     currentClassify: "全部",
-    calssifies: ["全部", "文具", "电器"]
+    calssifies: ["全部", "文具", "电器"],
+    page: 1
   },
   searchinput(e) {
     this.setData({
@@ -39,10 +41,12 @@ Page({
     this.data.communities.forEach((item, i) => {
       if (e.detail.value == i) {
         this.setData({
-          currentCommunity: item
+          currentCommunity: item,
+          page:1
         })
       }
     })
+    this.getProducts();
   },
   switchTab(e) {
     console.log(e);
@@ -89,14 +93,50 @@ Page({
       communities: community,
       currentCommunity: community[0]
     })
-    console.log(community)
+    console.log(community)    
+  },
+  getProducts() {
+    var that = this;
+    var page = this.data.page;
+    this.setData({
+      page: page + 1
+    })
+    var urlPara = "?page=" + page.toString() + "&position=" + this.data.currentCommunity + "&status=publish&classify=";
+    if (this.data.currentClassify != "全部") {
+      urlPara = urlPara + this.data.currentClassify + "&"
+    } else {
+      urlPara = urlPara + "%2A&"
+    }
+    if (this.data.buyOrSellList[this.data.currentTab] != "所有") {
+      urlPara = urlPara + "buysell=" + this.data.buyOrSellList[this.data.currentTab] + "&"
+    } else {
+      urlPara = urlPara + "buysell=%2A&"
+    }
+    if (this.data.searchinput != "") {
+      urlPara = urlPara + "search=" + this.data.searchinput
+    } else {
+      urlPara = urlPara + "search=%2A"
+    }
+    urlPara = 'http://192.168.0.102:6874/weixin/neibor/products' + urlPara;
+    wx.request({
+      url: urlPara,
+      method: 'GET',
+      success: function (res) {
+        console.log(res.data)
+      },
+      fail: function (res) {
+        // 请求失败后的回调函数  
+        console.log('Failed to fetch product classifies')
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
     this.setClassify();
-    this.setCommunity()
+    this.setCommunity();
+    this.getProducts();
   },
 
   /**
