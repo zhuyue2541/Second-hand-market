@@ -243,60 +243,85 @@ Page({
       currentClass: this.data.productClassify[index]
     })
   },
-  preGet(){
-    var app = getApp();
-    this.setData({
-      productClassify: app.globalData.productClassify,
-      communities: app.globalData.communities
+  getProductClassify() {
+    var that = this;
+    wx.request({
+      url: 'http://192.168.0.102:6874/weixin/neibor/productclassify', // 替换为你的服务端URL  
+      method: 'GET', // 根据需要选择请求方法，这里使用GET请求  
+      success: function (res) {
+
+        let calssify = res.data.split(",");
+        that.setData({
+          productClassify: calssify
+        })
+      },
+      fail: function (res) {
+        // 请求失败后的回调函数  
+        console.log('Failed to fetch product classifies')
+      }
+    })
+  },
+  getCommunity() {
+    var that = this;
+    wx.request({
+      url: 'http://192.168.0.102:6874/weixin/neibor/community',
+      method: 'GET',
+      success: function (res) {
+        // 请求成功后的回调函数  
+        console.log(res.data) // 打印获取到的物品种类数据 
+        var community = res.data.split(",");
+        that.setData({
+          communities: community
+        })
+        that.getProductClassify();
+      },
+      fail: function (res) {
+        // 请求失败后的回调函数  
+        console.log('Failed to fetch product classifies')
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    this.preGet();
+    this.getCommunity();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    this.preGet();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.preGet();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
   },
 
   /**

@@ -42,7 +42,7 @@ Page({
       if (e.detail.value == i) {
         this.setData({
           currentCommunity: item,
-          page:1
+          page: 1
         })
       }
     })
@@ -93,7 +93,50 @@ Page({
       communities: community,
       currentCommunity: community[0]
     })
-    console.log(community)    
+    console.log(community)
+  },
+  getProductClassify() {
+    var that = this;
+    wx.request({
+      url: 'http://192.168.0.102:6874/weixin/neibor/productclassify', // 替换为你的服务端URL  
+      method: 'GET', // 根据需要选择请求方法，这里使用GET请求  
+      success: function (res) {
+        // 请求成功后的回调函数  
+        console.log(res.data) // 打印获取到的物品种类数据 
+        // var calssify = res.data.split(",");
+        let calssifies = ["全部"]        
+        let calssify = calssifies.concat(res.data.split(","));
+        that.setData({
+          calssifies: calssify
+        })
+        that.getProducts();
+      },
+      fail: function (res) {
+        // 请求失败后的回调函数  
+        console.log('Failed to fetch product classifies')
+      }
+    })
+  },
+  getCommunity() {
+    var that = this;
+    wx.request({
+      url: 'http://192.168.0.102:6874/weixin/neibor/community',
+      method: 'GET',
+      success: function (res) {
+        // 请求成功后的回调函数  
+        console.log(res.data) // 打印获取到的物品种类数据 
+        var community = res.data.split(",");
+        that.setData({
+          communities: community,
+          currentCommunity: community[0]
+        })
+        that.getProductClassify();
+      },
+      fail: function (res) {
+        // 请求失败后的回调函数  
+        console.log('Failed to fetch product classifies')
+      }
+    })
   },
   getProducts() {
     var that = this;
@@ -133,26 +176,22 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-    this.setClassify();
-    this.setCommunity();
-    this.getProducts();
+  onLoad() {    
+    this.getCommunity();    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {
-    this.setClassify();
-    this.setCommunity()
+  onReady() {    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.setClassify();
-    this.setCommunity()
+    // this.setClassify();
+    // this.setCommunity()
   },
 
   /**
