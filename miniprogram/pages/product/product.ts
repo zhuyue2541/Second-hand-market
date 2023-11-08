@@ -13,7 +13,8 @@ Page({
     isMyProduct: true,
     pictureMode: "aspectFit",
     currentProduct: null,
-    avatar: "/images/tarBar/empty.png"
+    avatar: "/images/tarBar/empty.png",
+    serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
   },
   previewImage(e) {
     console.log(e);
@@ -66,8 +67,7 @@ Page({
    */
   onLoad: function (options) {
     const isShowLock = options.isShowLock == 'true';
-    const isMyProduct = options.isMyProduct == 'true';
-    console.log("=======isMyProduct:", isMyProduct)
+    const isMyProduct = options.isMyProduct == 'true';    
     console.log(app.globalData.currentProduct);
     // 使用参数进行后续操作
     this.setData({

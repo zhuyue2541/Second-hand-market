@@ -30,7 +30,7 @@
     <image class="productImage" wx:if="{{item.photos.length > 0}}" src="{{item.photos[0]}}" mode="aspectFill" />
     <image wx:else class="productImage" src="{{emptyPhoto}}" mode="aspectFill" />
     <view class="content">
-      <view>{{item.buyOrSell}}:{{item.name}} </view>
+      <view>{{item.Buysell}}:{{item.name}} </view>
       <view class="publicTime">发布时间: {{item.publish_time}}</view>
       <view class="description">
         <text user-select="true">{{item.description}}</text>

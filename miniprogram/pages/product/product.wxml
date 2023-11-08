@@ -2,7 +2,7 @@
 
 <view class="outContainer">
   <view class="firstLine">
-    <view>{{currentProduct.buyOrSell}}:{{currentProduct.name}}</view>
+    <view>{{currentProduct.Buysell}}:{{currentProduct.name}}</view>
     <button hidden="{{!showLockButton}}" bind:tap="lockProduct" class="lockProduct" style="width:100rpx">锁定</button>
   </view>
   <view class="publisher">
@@ -14,32 +14,32 @@
     </view>
     <view class="publisherDetail">
       <block wx:if="{{isMyProduct}}">
-        {{currentProduct.locker.contact}}        
+        {{currentProduct.locker.contact}}
       </block>
       <block wx:else>
-        <text user-select="true">{{currentProduct.publish_contact}}  </text>      
+        <text user-select="true">{{currentProduct.publish_contact}} </text>
       </block>
     </view>
   </view>
   <view class="publish-time" style="font-size: 30rpx; margin-left: 10rpx;">
     <text user-select="true" style="font-size: smaller;">发布时间: {{currentProduct.publish_time}}</text>
-    <text wx:if="{{currentProduct.endTime !== ''}}" style="padding-left:10rpx;">结束时间:{{currentProduct.endTime}}</text>
+    <text wx:if="{{currentProduct.removal_time != null}}" style="padding-left:10rpx;">结束时间:{{currentProduct.endTime}}</text>
   </view>
   <view>
     <!-- <image wx:if="{{currentProduct.image}}" src="{{currentProduct.image}}" class="secondLine" mode="aspectFit"></image> -->
 
-    <view class="pictrue" >
+    <view class="pictrue">
       <view class="pictrue1">
-        <image wx:if="{{currentProduct.photos.length > 0}}" src="{{currentProduct.photos[0]}}" mode="{{pictureMode}}" data-url="{{currentProduct.photos[0]}}" bindtap="previewImage"></image>
+        <image wx:if="{{currentProduct.images.length > 0}}" src="{{currentProduct.images[0]}}" mode="{{pictureMode}}" data-url="{{currentProduct.images[0]}}" bindtap="previewImage"></image>
         <image wx:else src="{{avatar}}" mode="aspectFit"></image>
       </view>
 
       <view class="pictrue2">
-        <image wx:if="{{currentProduct.photos.length > 1}}" src="{{currentProduct.photos[1]}}" mode="{{pictureMode}}" data-url="{{currentProduct.photos[1]}}" bindtap="previewImage"></image>
+        <image wx:if="{{currentProduct.images.length > 1}}" src="{{currentProduct.images[1]}}" mode="{{pictureMode}}" data-url="{{currentProduct.images[1]}}" bindtap="previewImage"></image>
         <image wx:else src="{{avatar}}" mode="aspectFit"></image>
       </view>
       <view class="pictrue3">
-        <image wx:if="{{currentProduct.photos.length > 2}}" src="{{currentProduct.photos[2]}}" mode="{{pictureMode}}" data-url="{{currentProduct.photos[2]}}" bindtap="previewImage"></image>
+        <image wx:if="{{currentProduct.images.length > 2}}" src="{{currentProduct.images[2]}}" mode="{{pictureMode}}" data-url="{{currentProduct.images[2]}}" bindtap="previewImage"></image>
         <image wx:else src="{{avatar}}" mode="aspectFit"></image>
       </view>
     </view>
@@ -50,8 +50,8 @@
     <text user-select="true" style="margin-right: 20rpx; margin-left:20rpx; "> {{currentProduct.description}}</text>
   </scroll-view>
   <view class="fourthLind">
-  <view wx:if="{{showLockButton}}">如果需要该物品，输入您的联系方式然后点击右上角锁定按钮，锁定后自行联系发布者，锁定后该物品进入锁定页面，一周后记录清除。</view>
-  <view wx:else>锁定人信息</view>
+    <view wx:if="{{showLockButton}}">如果需要该物品，输入您的联系方式然后点击右上角锁定按钮，锁定后自行联系发布者，锁定后该物品进入锁定页面，一周后记录清除。</view>
+    <view wx:else>锁定人信息</view>
   </view>
-  <textarea disabled="{{lockerInputDisable}}" value="{{locker}}" placeholder="您的联系方式" class="locker" bindinput="lockinput"/>
+  <textarea disabled="{{lockerInputDisable}}" value="{{locker}}" placeholder="您的联系方式" class="locker" bindinput="lockinput" />
 </view>
