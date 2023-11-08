@@ -87,7 +87,7 @@ Page({
       icon: "success",
       duration: 2000
     })
-    // this.clear();  最后取消TODO
+    this.clear(); 
   },
   submitMsg2server(pictures: string[]) {
     var that = this;
@@ -125,35 +125,43 @@ Page({
       }
     });
   },
-  submitPicture2server() {
+  publishOne(beforePhoto, index) {
+    if (index >= this.data.photos.length) {
+      return;
+    }
     let that = this;
-    let serverPhoto = [] as string[];
-
-    for (var i = 0; i < this.data.photos.length; i++) {
-
-      wx.uploadFile({
-        url: 'http://192.168.0.102:6874/weixin/neibor/publish/picture',
-        filePath: that.data.photos[i],
-        name: 'image',
-        formData: {
-          'current': i
-        },
-        success: function (res) {
-          if (res.statusCode != 200) {
-            that.showuploadfail();
-            return
-          }
-          var data = res.data.split(",");
-          serverPhoto.push(data[0])
-          if (parseInt(data[1]) + 1 == that.data.photos.length) {
-            that.submitMsg2server(serverPhoto);
-          }
-        },
-        fail: function (res) {
-          // 处理上传失败后的逻辑
+    wx.uploadFile({
+      url: 'http://192.168.0.102:6874/weixin/neibor/publish/picture',
+      filePath: that.data.photos[index],
+      name: 'image',
+      formData: {
+        'current': index
+      },
+      success: function (res) {
+        if (res.statusCode != 200) {
           that.showuploadfail();
+          return
         }
-      })
+        var data = res.data.split(",");
+        beforePhoto.push(data[0])
+        if (index + 1 == that.data.photos.length) {
+          that.submitMsg2server(beforePhoto);
+        } else {
+          that.publishOne(beforePhoto, index + 1)
+        }
+      },
+      fail: function (res) {
+        // 处理上传失败后的逻辑
+        that.showuploadfail();
+      }
+    })
+  },
+  submitPicture2server() {    
+    let serverPhoto = [] as string[];
+    if (this.data.photos.length > 0) {
+      this.publishOne(serverPhoto, 0);
+    } else {
+      this.submitMsg2server(serverPhoto);
     }
   },
   checkInput() {
