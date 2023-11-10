@@ -70,7 +70,7 @@ page {
   width: auto;
   box-sizing: border-box;
   border: 1rpx solid #D5D8DC;
-  height: 400rpx;
+  height: 250rpx;
 }
 .fourthLind{
   margin: 0rpx 20rpx;
@@ -117,4 +117,9 @@ page {
 .pictrue image {
   width: 240rpx;
   height: 400rpx;
+}
+
+.lockerContact{
+  border: 1rpx solid #D5D8DC;
+  margin: 10rpx;  
 }
