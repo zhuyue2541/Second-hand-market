@@ -6,6 +6,8 @@ Page({
    */
   data: {
     searchinput: "",
+    isSearch: false,
+    reviewer: ["20102541"],
     emptyPhoto: "/images/tarBar/empty.png",
     products: [],
     currentTab: '0',
@@ -18,9 +20,11 @@ Page({
     pageSize: 10,
     serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
   },
+
   searchinput(e) {
+    var inputValue = e.detail.value;
     this.setData({
-      searchinput: e.detail.value
+      searchinput: inputValue
     })
   },
   reGetProducts() {
@@ -34,7 +38,19 @@ Page({
     })
   },
   onSearch(e) {
-    console.log(e); //TODO
+    console.log("onSearch:%s", this.data.searchinput)
+    if (this.data.reviewer.includes(this.data.searchinput)) {
+      wx.navigateTo({
+        url: "/pages/review/review"
+      })
+    } else {
+      if (this.data.searchinput.length > 0) {
+        this.setData({
+          isSearch: true
+        })
+      }
+      this.getProducts();
+    }
   },
   selectCommunity(e) {
     console.log(e);
@@ -74,7 +90,7 @@ Page({
       }
     });
     wx.navigateTo({
-      url: "/pages/product/product?isShowLock=false&isMyProduct=false"
+      url: "/pages/product/product?isShowLock=false&isMyProduct=false&review=false"
     })
   },
 
@@ -155,17 +171,33 @@ Page({
     }
     var that = this;
     var currentProducts = this.data.products;
-    products.forEach((item, i) => {
-      item.images = that.imagsAddUrl(item.images.split(","));
-      item.publish_time = item.publish_time.replace(/T/g, ' ');
-      item.publish_time = item.publish_time.split(".")[0]
-      if (!that.isRepeatProduct(item, currentProducts)) {
-        currentProducts.push(item);
-      }
-    })
-    this.setData({
-      products: currentProducts
-    })
+    if (this.data.isSearch) {
+      console.log("search..")
+      this.initPage();
+      var myProduct = [];
+      products.forEach((item, i) => {
+        item.images = that.imagsAddUrl(item.images.split(","));
+        item.publish_time = item.publish_time.replace(/T/g, ' ');
+        item.publish_time = item.publish_time.split(".")[0]
+        myProduct.push(item);
+      })
+      this.setData({
+        products: myProduct,
+        isSearch: false
+      })
+    } else {
+      products.forEach((item, i) => {
+        item.images = that.imagsAddUrl(item.images.split(","));
+        item.publish_time = item.publish_time.replace(/T/g, ' ');
+        item.publish_time = item.publish_time.split(".")[0]
+        if (!that.isRepeatProduct(item, currentProducts)) {
+          currentProducts.push(item);
+        }
+      })
+      this.setData({
+        products: currentProducts
+      })
+    }
   },
   getProducts() {
     var that = this;
@@ -190,6 +222,7 @@ Page({
       urlPara = urlPara + "search=%2A"
     }
     urlPara = 'http://192.168.0.102:6874/weixin/neibor/products' + urlPara;
+    console.log(urlPara)
     wx.request({
       url: urlPara,
       method: 'GET',

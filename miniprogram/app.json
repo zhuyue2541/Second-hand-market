@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/currentShow/currentShow",
+    "pages/review/review",
     "pages/locking/locking",
     "pages/product/product",
     "pages/contact/contact",
-    "pages/publish/publish"
+    "pages/publish/publish"    
   ],
   "window": {
     "backgroundTextStyle": "light",

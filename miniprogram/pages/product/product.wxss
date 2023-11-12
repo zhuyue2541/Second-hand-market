@@ -123,3 +123,30 @@ page {
   border: 1rpx solid #D5D8DC;
   margin: 10rpx;  
 }
+
+
+.submitButton {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  /* bottom: 20rpx; */
+  justify-content: space-around;
+  /* border: 1rpx solid red; */
+  width: 100%;
+}
+
+.submitButton button {
+  width: 180rpx;
+  border-radius: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0;
+}
+
+.submitButton button:nth-child(1) {
+  background-color: red;
+}
+
+.submitButton button:nth-child(2) {
+  background-color: #AED6F1;
+}

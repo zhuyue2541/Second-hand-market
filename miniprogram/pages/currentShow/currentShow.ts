@@ -8,6 +8,7 @@ Page({
     searchinput: "",
     emptyPhoto: "/images/tarBar/empty.png",
     products: [],
+    isSearch: false,
     currentTab: '0',
     buyOrSellList: ["所有", "赠送", "出售", "求购"],
     currentCommunity: "雅居乐湖居笔记",
@@ -15,7 +16,7 @@ Page({
     currentClassify: "全部",
     calssifies: ["全部", "文具", "电器"],
     page: 1,
-    pageSize : 10,
+    pageSize: 10,
     serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
   },
   searchinput(e) {
@@ -34,7 +35,12 @@ Page({
     })
   },
   onSearch(e) {
-    console.log(e); //TODO
+    if (this.data.searchinput.length > 0) {
+      this.setData({
+        isSearch: true
+      })
+    }
+    this.getProducts();
   },
   selectCommunity(e) {
     console.log(e);
@@ -74,7 +80,7 @@ Page({
       }
     });
     wx.navigateTo({
-      url: "/pages/product/product?isShowLock=true&isMyProduct=false"
+      url: "/pages/product/product?isShowLock=true&isMyProduct=false&review=false"
     })
   },
   setClassify() {
@@ -170,17 +176,33 @@ Page({
     }
     var that = this;
     var currentProducts = this.data.products;
-    products.forEach((item, i) => {
-      item.images = that.imagsAddUrl(item.images.split(","));
-      item.publish_time = item.publish_time.replace(/T/g, ' ');
-      item.publish_time = item.publish_time.split(".")[0];
-      if (!that.isRepeatProduct(item, currentProducts)) {
-        currentProducts.push(item);
-      }
-    })
-    this.setData({
-      products: currentProducts
-    })
+    if (this.data.isSearch) {
+      console.log("search..")
+      this.initPage();
+      var myProduct = [];
+      products.forEach((item, i) => {
+        item.images = that.imagsAddUrl(item.images.split(","));
+        item.publish_time = item.publish_time.replace(/T/g, ' ');
+        item.publish_time = item.publish_time.split(".")[0]
+        myProduct.push(item);
+      })
+      this.setData({
+        products: myProduct,
+        isSearch: false
+      })
+    } else {
+      products.forEach((item, i) => {
+        item.images = that.imagsAddUrl(item.images.split(","));
+        item.publish_time = item.publish_time.replace(/T/g, ' ');
+        item.publish_time = item.publish_time.split(".")[0];
+        if (!that.isRepeatProduct(item, currentProducts)) {
+          currentProducts.push(item);
+        }
+      })
+      this.setData({
+        products: currentProducts
+      })
+    }
   },
   getProducts() {
     var that = this;

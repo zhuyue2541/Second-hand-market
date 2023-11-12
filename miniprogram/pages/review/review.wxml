@@ -1,0 +1,16 @@
+<!--pages/review/review.wxml-->
+
+<view class="productShow" wx:for="{{products}}" wx:key="id">
+  <view class="oneProduct" bindtap="showDetail" data-nid="{{item.id}}">
+    <image class="productImage" wx:if="{{item.images.length > 0}}" src="{{item.images[0]}}" mode="aspectFill" />
+    <image wx:else class="productImage" src="{{emptyPhoto}}" mode="aspectFill" />
+    <view class="content">
+      <view>{{item.position}}</view>
+      <view>{{item.Buysell}}:{{item.name}} </view>
+      <view class="publicTime">发布时间: {{item.publish_time}}</view>
+      <view class="description">
+        <text user-select="true">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+</view>

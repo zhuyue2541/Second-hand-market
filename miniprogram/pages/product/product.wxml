@@ -51,12 +51,18 @@
   </scroll-view>
   <view class="fourthLind">
     <view wx:if="{{showLockButton}}">如果需要该物品，输入您的联系方式然后点击右上角锁定按钮，锁定后自行联系发布者，锁定后该物品进入锁定页面，一周后记录清除。</view>
-    <view wx:else>锁定人联系方式</view>
+    <view wx:elif="{{isReview == false}}">锁定人联系方式</view>
   </view>
   <view wx:if="{{showLockButton}}">
     <textarea disabled="{{lockerInputDisable}}" value="{{locker}}" placeholder="您的联系方式" class="locker" bindinput="lockinput" />
   </view>
-  <view wx:else  class = "lockerContact">
-   {{currentProduct.locker_contact}}
+  <view wx:elif="{{isReview}}">
+    <view class="submitButton">
+      <button class="reject" bindtap="reject">拒绝</button>
+      <button class="pass" bindtap="pass">通过</button>
+    </view>
+  </view>
+  <view wx:else class="lockerContact">
+    {{currentProduct.locker_contact}}
   </view>
 </view>

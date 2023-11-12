@@ -11,6 +11,7 @@ Page({
     locker: "",
     showLockButton: true,
     isMyProduct: true,
+    isReview: false,
     pictureMode: "aspectFit",
     currentProduct: null,
     avatar: "/images/tarBar/empty.png",
@@ -137,19 +138,61 @@ Page({
       locker
     })
   },
-
+  review(status){
+    var that = this;
+    var currentProduct =  this.data.currentProduct;
+    var productId = currentProduct.id.toString();
+    var productMsg = {      
+      'id': productId,
+      'status':status
+    };
+    wx.request({
+      url: 'http://192.168.0.102:6874/weixin/neibor/review', // 替换为你的服务器端 URL
+      method: 'POST',
+      data: productMsg,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        if (res.statusCode != 200) {
+          that.showuploadfail();
+        } else {
+          that.showuploadsucc();
+          that.deletePrePageData(currentProduct.id);
+          wx.navigateBack({  
+            delta: 1
+          })          
+        }
+      },
+      fail: function (error) {
+        // 请求失败的回调函数
+        console.log("publish fail")
+        console.log(error);
+        that.showuploadfail();
+      }
+    });
+  },
+  reject(){
+    this.review("reject")
+  },
+  pass(){
+    this.review("publish")
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     const isShowLock = options.isShowLock == 'true';
     const isMyProduct = options.isMyProduct == 'true';
+    const isReview = options.review == 'true';
     console.log(app.globalData.currentProduct);
     // 使用参数进行后续操作
     this.setData({
       showLockButton: isShowLock,
       isMyProduct: isMyProduct,
-      currentProduct: app.globalData.currentProduct
+      currentProduct: app.globalData.currentProduct,
+      isReview: isReview
     })
 
   },
