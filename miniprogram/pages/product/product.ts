@@ -24,6 +24,13 @@ Page({
       current: e.currentTarget.dataset.url
     })
   },
+  showFailDetail(detail){
+    wx.showToast({
+      title: detail,
+      icon: "error",
+      duration: 3000
+    })
+  },
   showuploadfail() {
     wx.showToast({
       title: "上传失败请重试",
@@ -57,10 +64,13 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        // 请求成功的回调函数        
+        // 请求成功的回调函数      
+        console.log("===lock result")
         console.log(res.data); // 输出服务器返回的数据
         if (res.statusCode != 200) {
           that.showuploadfail();
+        } else if (res.data.message != "success") {
+          that.showFailDetail(res.data.message);
         } else {
           that.showuploadsucc();
         }
