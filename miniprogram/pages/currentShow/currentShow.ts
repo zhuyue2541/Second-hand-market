@@ -132,8 +132,17 @@ Page({
   },
   imagsAddUrl(images){
     var imge = [] as string;
+    console.log("imagsAddUrl")
+    console.log(images)
+    if(images.length == 0 || images[0] == ""){
+      console.log("no images")
+      return imge;
+    }
     var url = this.data.serverPictureUrl;
     images.forEach((item, _) => {
+      if(item == ""){
+        retrun;
+      }
       imge.push(url+item)      
     });    
     return imge
