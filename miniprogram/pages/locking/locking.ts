@@ -63,7 +63,7 @@ Page({
     })
     this.reGetProducts();
   },
-  showDetail(e){    
+  showDetail(e) {
     var app = getApp()
     let nid = e.currentTarget.dataset.nid;
     this.data.products.forEach((item, _) => {
@@ -76,7 +76,7 @@ Page({
       url: "/pages/product/product?isShowLock=false&isMyProduct=false"
     })
   },
-  
+
   getProductClassify() {
     var that = this;
     wx.request({
@@ -120,12 +120,12 @@ Page({
       }
     })
   },
-  imagsAddUrl(images){
+  imagsAddUrl(images) {
     var imge = [] as string;
     var url = this.data.serverPictureUrl;
     images.forEach((item, _) => {
-      imge.push(url+item)      
-    });    
+      imge.push(url + item)
+    });
     return imge
   },
   showProducts(products) {
@@ -216,7 +216,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    this.initPage();
+    this.getCommunity();
+    setTimeout(() => {
+      // 加载完毕后停止刷新动画并更新数据  
+      this.setData({
+        refreshing: false
+      });
+      wx.stopPullDownRefresh(); // 停止下拉刷新  
+    }, 2000);
   },
 
   /**
