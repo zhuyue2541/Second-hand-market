@@ -142,7 +142,7 @@ Page({
     var url = this.data.serverPictureUrl;
     images.forEach((item, _) => {
       if (item == "") {
-        retrun;
+        return;
       }
       imge.push(url + item)
     });

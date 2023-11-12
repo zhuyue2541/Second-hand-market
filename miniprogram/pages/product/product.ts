@@ -24,7 +24,18 @@ Page({
       current: e.currentTarget.dataset.url
     })
   },
-  showFailDetail(detail){
+  deletePrePageData(id) {
+    const pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2];
+    var preProducts = [];
+    prevPage.data.products.forEach((item, index) => {
+      if (item.id != id) {
+        preProducts.push(item)
+      }
+    });
+    prevPage.setData({ products: preProducts });
+  },
+  showFailDetail(detail) {
     wx.showToast({
       title: detail,
       icon: "error",
@@ -64,15 +75,15 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        // 请求成功的回调函数      
-        console.log("===lock result")
-        console.log(res.data); // 输出服务器返回的数据
+        console.log(res.data);
         if (res.statusCode != 200) {
           that.showuploadfail();
         } else if (res.data.message != "success") {
           that.showFailDetail(res.data.message);
+          that.deletePrePageData(currentProduct.id);
         } else {
           that.showuploadsucc();
+          that.deletePrePageData(currentProduct.id);
         }
       },
       fail: function (error) {
@@ -140,6 +151,7 @@ Page({
       isMyProduct: isMyProduct,
       currentProduct: app.globalData.currentProduct
     })
+
   },
   // onLoad(): function(options) {
   //   console.log(options);

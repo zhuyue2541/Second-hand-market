@@ -15,7 +15,7 @@ Page({
     currentClassify: "全部",
     calssifies: ["全部", "文具", "电器"],
     page: 1,
-    pageSize:10,
+    pageSize: 10,
     serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
   },
   searchinput(e) {
@@ -125,6 +125,9 @@ Page({
     var imge = [] as string;
     var url = this.data.serverPictureUrl;
     images.forEach((item, _) => {
+      if (item == "") {
+        return;
+      }
       imge.push(url + item)
     });
     return imge
