@@ -15,6 +15,7 @@ Page({
     currentClassify: "全部",
     calssifies: ["全部", "文具", "电器"],
     page: 1,
+    refreshing:false,
     serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
   },
   searchinput(e) {
@@ -200,7 +201,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+    this.initPage()
     this.getCommunity();
+    wx.stopPullDownRefresh();
+    // wx.pageScrollTo({  
+    //   scrollTop: 0,  
+    //   success: function() {  
+    //     wx.startPullDownRefresh(); // 开始下拉刷新  
+    //   }  
+    // });  
   },
 
   /**
@@ -233,8 +242,20 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh() {
-
+  onPullDownRefresh:function() { 
+    console.log("onPullDownRefresh");
+    this.initPage();
+    this.getCommunity();
+    this.setData({  
+      refreshing: true // 设置为正在刷新数据的状态  
+    });  
+    setTimeout(() => {  
+      // 加载完毕后停止刷新动画并更新数据  
+      this.setData({  
+        refreshing: false  
+      });  
+      wx.stopPullDownRefresh(); // 停止下拉刷新  
+    }, 2000);  
   },
 
   /**
