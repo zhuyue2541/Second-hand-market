@@ -14,6 +14,7 @@ Page({
     pictureMode: "aspectFit",
     currentProduct: null,
     avatar: "/images/tarBar/empty.png",
+    lockUrl: "/weixin/neibor/lockoneproduct",
     serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
   },
   previewImage(e) {
@@ -22,6 +23,65 @@ Page({
       urls: [e.currentTarget.dataset.url],
       current: e.currentTarget.dataset.url
     })
+  },
+  showuploadfail() {
+    wx.showToast({
+      title: "上传失败请重试",
+      icon: "error",
+      duration: 2000
+    })
+  },
+  showuploadsucc() {
+    wx.showToast({
+      title: "上传成功",
+      icon: "success",
+      duration: 2000
+    })
+    this.setData({
+      showLockButton: false,
+      lockerInputDisable: true
+    });
+  },
+  submit2server(currentProduct) {
+    var that = this;
+    var productId = currentProduct.id.toString();
+    var productMsg = {
+      'locker_contact': this.data.locker,
+      'id': productId
+    };
+    wx.request({
+      url: 'http://192.168.0.102:6874/weixin/neibor/lockoneproduct', // 替换为你的服务器端 URL
+      method: 'POST',
+      data: productMsg,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        // 请求成功的回调函数        
+        console.log(res.data); // 输出服务器返回的数据
+        if (res.statusCode != 200) {
+          that.showuploadfail();
+        } else {
+          that.showuploadsucc();
+        }
+      },
+      fail: function (error) {
+        // 请求失败的回调函数
+        console.log("publish fail")
+        console.log(error);
+        that.showuploadfail();
+      }
+    });
+
+  },
+  addLocker(locker) {
+    var currentProduct = this.data.currentProduct;
+    currentProduct.locker_contact = locker;
+    this.setData({
+      currentProduct
+    })
+    console.log(this.data.currentProduct)
+    this.submit2server(currentProduct)
   },
   lockProduct() {
     if (this.data.locker.length == 0) {
@@ -41,11 +101,7 @@ Page({
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定');
-          that.setData({
-            showLockButton: false,
-            locker: locker,
-            lockerInputDisable: true            
-          });
+          that.addLocker(locker);
           // 在这里执行取消操作
         } else if (res.cancel) {
           console.log('用户点击取消');
@@ -55,7 +111,6 @@ Page({
     })
   },
   lockinput(e) {
-    console.log(e);
     var locker = e.detail.value;
     this.setData({
       locker
@@ -67,7 +122,7 @@ Page({
    */
   onLoad: function (options) {
     const isShowLock = options.isShowLock == 'true';
-    const isMyProduct = options.isMyProduct == 'true';    
+    const isMyProduct = options.isMyProduct == 'true';
     console.log(app.globalData.currentProduct);
     // 使用参数进行后续操作
     this.setData({
