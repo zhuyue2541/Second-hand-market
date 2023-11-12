@@ -15,6 +15,7 @@ Page({
     currentClassify: "全部",
     calssifies: ["全部", "文具", "电器"],
     page: 1,
+    pageSize:10,
     serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
   },
   searchinput(e) {
@@ -128,15 +129,36 @@ Page({
     });
     return imge
   },
+  isRepeatProduct(currentProduct, products) {
+    var isRpeat = false;
+    products.forEach((item, i) => {
+      if (item.id == currentProduct.id) {
+        isRpeat = true;
+        return;
+      }
+    })
+    return isRpeat;
+  },
   showProducts(products) {
     console.log(products);
+    var currentPage = this.data.page;
+    if (products.length < this.data.pageSize) {
+      this.setData({
+        page: currentPage - 1
+      })
+      if (products.length == 0) {
+        return;
+      }
+    }
     var that = this;
     var currentProducts = this.data.products;
     products.forEach((item, i) => {
       item.images = that.imagsAddUrl(item.images.split(","));
       item.publish_time = item.publish_time.replace(/T/g, ' ');
       item.publish_time = item.publish_time.split(".")[0]
-      currentProducts.push(item);
+      if (!that.isRepeatProduct(item, currentProducts)) {
+        currentProducts.push(item);
+      }
     })
     this.setData({
       products: currentProducts
@@ -231,7 +253,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.getProducts();
   },
 
   /**

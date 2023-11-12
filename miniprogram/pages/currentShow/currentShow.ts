@@ -14,7 +14,8 @@ Page({
     communities: ["雅居乐湖居笔记", "智慧城", "万景荔枝湾"],
     currentClassify: "全部",
     calssifies: ["全部", "文具", "电器"],
-    page: 1,    
+    page: 1,
+    pageSize : 10,
     serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
   },
   searchinput(e) {
@@ -130,32 +131,52 @@ Page({
       }
     })
   },
-  imagsAddUrl(images){
+  imagsAddUrl(images) {
     var imge = [] as string;
     console.log("imagsAddUrl")
     console.log(images)
-    if(images.length == 0 || images[0] == ""){
+    if (images.length == 0 || images[0] == "") {
       console.log("no images")
       return imge;
     }
     var url = this.data.serverPictureUrl;
     images.forEach((item, _) => {
-      if(item == ""){
+      if (item == "") {
         retrun;
       }
-      imge.push(url+item)      
-    });    
+      imge.push(url + item)
+    });
     return imge
   },
+  isRepeatProduct(currentProduct, products) {
+    var isRpeat = false;
+    products.forEach((item, i) => {
+      if (item.id == currentProduct.id) {
+        isRpeat = true;
+        return;
+      }
+    })
+    return isRpeat;
+  },
   showProducts(products) {
-    console.log(products);
+    var currentPage = this.data.page;
+    if (products.length < this.data.pageSize) {
+      this.setData({
+        page: currentPage - 1
+      })
+      if (products.length == 0) {
+        return;
+      }
+    }
     var that = this;
     var currentProducts = this.data.products;
     products.forEach((item, i) => {
       item.images = that.imagsAddUrl(item.images.split(","));
       item.publish_time = item.publish_time.replace(/T/g, ' ');
-      item.publish_time = item.publish_time.split(".")[0]
-      currentProducts.push(item);
+      item.publish_time = item.publish_time.split(".")[0];
+      if (!that.isRepeatProduct(item, currentProducts)) {
+        currentProducts.push(item);
+      }
     })
     this.setData({
       products: currentProducts
@@ -201,7 +222,7 @@ Page({
    */
   onLoad() {
     this.initPage()
-    this.getCommunity();    
+    this.getCommunity();
   },
 
   /**
@@ -234,31 +255,25 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh:function() {     
+  onPullDownRefresh: function () {
     this.initPage();
     this.getCommunity();
-    
-    setTimeout(() => {         
+    setTimeout(() => {
       wx.stopPullDownRefresh(); // 停止下拉刷新  
-    }, 2000);  
+    }, 2000);
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-    var products = this.data.products
-    var product = { id: 223, publish_time: "2023.10.01", name: "书桌", endTime: "", description: "宽1.6米，高55cm.要在微信小程序中设置图片的 aspectFit 模式，并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中：.并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中并使图片宽度为 700rpx，并水平居中，你可以使用 CSS 的 width 和 margin 属性来实现。      以下是一个示例代码，展示了如何设置图片的 aspectFit 模式，宽度为 700rpx，并水平居中", "classify": "其他", Buysell: "出售", photos: ["/images/product/OIP-C.jpg", "/images/product/OIP-C.jpg", "/images/product/OIP-C.jpg"], image: "/images/product/OIP-C.jpg", publisher: { wxName: "zhuyue1242", contact: "电话。。。微信：l2fa43e", telNo: "123465421fe654", position: "F区10号楼" } };
-    products.push(product);
-    this.setData({
-      products
-    })
+    console.log("onReachBottom")
+    this.getProducts();
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
   }
 })
