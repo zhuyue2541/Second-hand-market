@@ -22,7 +22,8 @@ Page({
   searchinput(e) {
     this.setData({
       searchinput: e.detail.value
-    })
+    });
+    this.onSearch();
   },
   reGetProducts() {
     this.initPage();

@@ -26,6 +26,7 @@ Page({
     this.setData({
       searchinput: inputValue
     })
+    this.onSearch();
   },
   reGetProducts() {
     this.initPage();

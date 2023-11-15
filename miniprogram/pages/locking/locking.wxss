@@ -24,8 +24,10 @@ page {
 }
 
 .describe {
-  width: fit-content;
-  /* margin-left: 100rpx; */
+  height: 50rpx;
+  width: 100rpx;
+  display: flex;
+  align-items: center;
 }
 
 .position {  
@@ -33,6 +35,8 @@ page {
   background-color: white;
   border-radius: 20rpx;
   color: red;
+  display: flex;
+  align-items: center;  
 }
 /* 
 .searchBox {
