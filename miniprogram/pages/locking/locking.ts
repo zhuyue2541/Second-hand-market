@@ -7,7 +7,7 @@ Page({
   data: {
     searchinput: "",
     isSearch: false,
-    reviewer: ["20102541"],
+    // reviewer: ["20102541"],
     emptyPhoto: "/images/tarBar/empty.png",
     products: [],
     currentTab: '0',
@@ -18,9 +18,27 @@ Page({
     calssifies: ["全部", "文具", "电器"],
     page: 1,
     pageSize: 10,
+    reviewer: {},
+    reviewerUrl: "http://192.168.0.102:6874/weixin/neibor/reviewer",
     serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
   },
-
+  getReviewer() {
+    var that = this;
+    wx.request({
+      url: that.data.reviewerUrl, // 替换为你的服务端URL  
+      method: 'GET', // 根据需要选择请求方法，这里使用GET请求  
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          reviewer: res.data
+        })
+      },
+      fail: function (res) {
+        // 请求失败后的回调函数  
+        console.log('Failed to fetch review')
+      }
+    })
+  },
   searchinput(e) {
     var inputValue = e.detail.value;
     this.setData({
@@ -38,11 +56,20 @@ Page({
       products: []
     })
   },
+  isReview(){
+    for (let key in this.data.reviewer) {  
+      if(key == this.data.searchinput){
+        return true;
+      }
+    }
+    return false;
+  },
   onSearch(e) {
-    console.log("onSearch:%s", this.data.searchinput)
-    if (this.data.reviewer.includes(this.data.searchinput)) {
+    console.log("onSearch:%s", this.data.searchinput);
+    let position = this.data.reviewer[this.data.searchinput];
+    if (this.isReview()) {
       wx.navigateTo({
-        url: "/pages/review/review"
+        url: "/pages/review/review?position="+position
       })
     } else {
       if (this.data.searchinput.length > 0) {
@@ -241,6 +268,7 @@ Page({
    */
   onLoad() {
     this.getCommunity();
+    this.getReviewer();
   },
 
   /**

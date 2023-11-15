@@ -62,14 +62,15 @@ Page({
       products: currentProducts
     })
   },
-  getProducts() {
+  getProducts(position) {
     var that = this;
     var page = this.data.page;
     this.setData({
       page: page + 1
     })
-    var urlPara = "?page=" + page.toString() + "&position=%2A&status=audit&classify=%2A&buysell=%2A&search=%2A";
+    var urlPara = "?page=" + page.toString() + "&position="+position+"&status=audit&classify=%2A&buysell=%2A&search=%2A";
     urlPara = 'http://192.168.0.102:6874/weixin/neibor/products' + urlPara;
+    console.log(urlPara)
     wx.request({
       url: urlPara,
       method: 'GET',
@@ -104,9 +105,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  onLoad(options) {
+    var position = options.position;
+    if(position == "all"){
+      position="%2A"
+    }
+    console.log(position)
     this.initPage();
-    this.getProducts();
+    this.getProducts(position);
   },
 
   /**
