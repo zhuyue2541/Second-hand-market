@@ -16,7 +16,7 @@ Page({
     currentProduct: null,
     avatar: "/images/tarBar/empty.png",
     lockUrl: "/weixin/neibor/lockoneproduct",
-    serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
+    serverPictureUrl: "https://wuqiongji.com.cn:6874/weixin/neibor/picture?id="
   },
   previewImage(e) {
     console.log(e);
@@ -69,7 +69,7 @@ Page({
       'id': productId
     };
     wx.request({
-      url: 'http://192.168.0.102:6874/weixin/neibor/lockoneproduct', // 替换为你的服务器端 URL
+      url: 'https://wuqiongji.com.cn:6874/weixin/neibor/lockoneproduct', // 替换为你的服务器端 URL
       method: 'POST',
       data: productMsg,
       header: {
@@ -147,7 +147,7 @@ Page({
       'status':status
     };
     wx.request({
-      url: 'http://192.168.0.102:6874/weixin/neibor/review', // 替换为你的服务器端 URL
+      url: 'https://wuqiongji.com.cn:6874/weixin/neibor/review', // 替换为你的服务器端 URL
       method: 'POST',
       data: productMsg,
       header: {

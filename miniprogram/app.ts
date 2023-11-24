@@ -8,7 +8,7 @@ App<IAppOption>({
   getProductClassify() {
     var that = this;
     wx.request({
-      url: 'http://192.168.0.102:6874/weixin/neibor/productclassify', // 替换为你的服务端URL  
+      url: 'https://wuqiongji.com.cn:6874/weixin/neibor/productclassify', // 替换为你的服务端URL  
       method: 'GET', // 根据需要选择请求方法，这里使用GET请求  
       success: function (res) {
         // 请求成功后的回调函数  
@@ -25,7 +25,7 @@ App<IAppOption>({
   getCommunity(){
     var that = this;
     wx.request({
-      url: 'http://192.168.0.102:6874/weixin/neibor/community', 
+      url: 'https://wuqiongji.com.cn:6874/weixin/neibor/community', 
       method: 'GET', 
       success: function (res) {
         // 请求成功后的回调函数  

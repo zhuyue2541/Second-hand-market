@@ -17,7 +17,7 @@ Page({
     calssifies: ["全部", "文具", "电器"],
     page: 1,
     pageSize: 10,
-    serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id="
+    serverPictureUrl: "https://wuqiongji.com.cn:6874/weixin/neibor/picture?id="
   },
   searchinput(e) {
     this.setData({
@@ -98,7 +98,7 @@ Page({
   getProductClassify() {
     var that = this;
     wx.request({
-      url: 'http://192.168.0.102:6874/weixin/neibor/productclassify', // 替换为你的服务端URL  
+      url: 'https://wuqiongji.com.cn:6874/weixin/neibor/productclassify', // 替换为你的服务端URL  
       method: 'GET', // 根据需要选择请求方法，这里使用GET请求  
       success: function (res) {
         // 请求成功后的回调函数  
@@ -120,7 +120,7 @@ Page({
   getCommunity() {
     var that = this;
     wx.request({
-      url: 'http://192.168.0.102:6874/weixin/neibor/community',
+      url: 'https://wuqiongji.com.cn:6874/weixin/neibor/community',
       method: 'GET',
       success: function (res) {
         // 请求成功后的回调函数  
@@ -227,7 +227,7 @@ Page({
     } else {
       urlPara = urlPara + "search=%2A"
     }
-    urlPara = 'http://192.168.0.102:6874/weixin/neibor/products' + urlPara;
+    urlPara = 'https://wuqiongji.com.cn:6874/weixin/neibor/products' + urlPara;
     wx.request({
       url: urlPara,
       method: 'GET',

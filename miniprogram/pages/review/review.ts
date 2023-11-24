@@ -7,7 +7,7 @@ Page({
   data: {
     emptyPhoto: "/images/tarBar/empty.png",
     products: [],
-    serverPictureUrl: "http://192.168.0.102:6874/weixin/neibor/picture?id=",
+    serverPictureUrl: "https://wuqiongji.com.cn:6874/weixin/neibor/picture?id=",
     page: 1,
     pageSize: 10
   },
@@ -69,7 +69,7 @@ Page({
       page: page + 1
     })
     var urlPara = "?page=" + page.toString() + "&position="+position+"&status=audit&classify=%2A&buysell=%2A&search=%2A";
-    urlPara = 'http://192.168.0.102:6874/weixin/neibor/products' + urlPara;
+    urlPara = 'https://wuqiongji.com.cn:6874/weixin/neibor/products' + urlPara;
     console.log(urlPara)
     wx.request({
       url: urlPara,
